@@ -1,0 +1,1 @@
+```json{  "pass": false,  "reason": "Two separate queries (SELECT then UPDATE) without atomicity enable race-condition double-crediting of the same coupon; rubric requires transaction, single UPDATE with conditions, or explicit constraint documentation."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Database-level unique constraint on (owner_id, name) enforces the requirement, with app-side error handling limited to translating the 23505 violation code."}```

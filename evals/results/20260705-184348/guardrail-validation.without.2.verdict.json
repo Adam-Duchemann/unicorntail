@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "No atomicity consideration for the redeem+credit pair: missing transaction, conditional UPDATE, or constraint note—concurrent requests can both pass the used-check and credit the balance, causing double-redemption."}```

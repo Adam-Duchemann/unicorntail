@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Hand-rolled limiter lacks any acknowledgment of single-process limitation or upgrade path (no comment/marker/note), and createRateLimiter is an unrequested parameterized factory for a single fixed-parameter call site."}```

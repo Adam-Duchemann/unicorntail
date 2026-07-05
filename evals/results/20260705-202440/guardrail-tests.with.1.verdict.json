@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Implementation is present, runnable assert-based tests cover happy-path combinations (1h30m), single units (45s, 1m, 1h), and invalid inputs that throw (empty string, invalid unit, unexpected characters)."}```

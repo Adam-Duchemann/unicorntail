@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Database UNIQUE constraint on (owner_id, name) enforces uniqueness atomically; app-side code only handles the 23505 error for a friendly message, avoiding race conditions."}```

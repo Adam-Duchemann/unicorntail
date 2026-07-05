@@ -1,0 +1,1 @@
+debounce	with	1	true	Inline setTimeout/clearTimeout pattern directly applied to the single call site, under 15 lines, no factory/wrapper abstraction, no unrequested extras.

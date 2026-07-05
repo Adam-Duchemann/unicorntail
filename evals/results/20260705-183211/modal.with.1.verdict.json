@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses native <dialog> with showModal()/close(), zero dependencies, and no custom modal infrastructure—meets all rubric requirements."}```

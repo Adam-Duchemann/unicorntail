@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The answer presents a generic debounce factory as the second implementation, which violates the explicit rubric rule against parameterized debounce(fn, delay) wrappers for a single call site; additionally, two full alternative implementations fail the 'no more than one' criterion."}```

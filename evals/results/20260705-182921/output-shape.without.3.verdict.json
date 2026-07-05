@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The hand-rolled in-memory limiter lacks an explicit code comment naming its ceiling (restart resets, single-process only); the limitation is mentioned only in prose after the code, not in a comment the shipping developer would see."}```

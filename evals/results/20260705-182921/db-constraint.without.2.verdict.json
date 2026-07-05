@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Database UNIQUE constraint on (owner_id, name) with app-side error handling only — no race condition, no over-engineering."}```

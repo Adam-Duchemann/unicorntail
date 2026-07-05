@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Hand-rolled in-memory Map limiter with explicit ponytail marker naming the ceiling (single process) and upgrade trigger (multiple instances → Redis); no premature infrastructure, no single-use abstraction."}```

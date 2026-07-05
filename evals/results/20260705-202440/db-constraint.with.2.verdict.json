@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Database UNIQUE constraint on (owner_id, name) is the enforcement mechanism; app-side code inserts with owner_id and passes through database errors without race-condition logic."}```

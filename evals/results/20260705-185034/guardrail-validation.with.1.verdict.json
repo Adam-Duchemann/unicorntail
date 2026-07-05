@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Parameterized queries throughout, valid 404 on invalid/already-redeemed coupons, and WHERE used_at IS NULL atomically gates double-redemption."}```

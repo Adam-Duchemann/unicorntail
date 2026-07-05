@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Two separate queries with no transaction or update condition allow a single coupon to be credited twice in concurrent requests; lacks the required atomicity consideration (transaction, conditional update, or explicit constraint note)."}```

@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Code is vulnerable to race conditions between the SELECT and UPDATE operations; lacks required atomicity consideration (no transaction, single UPDATE with conditions, or explicit constraint note)."}```

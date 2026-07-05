@@ -1,0 +1,24 @@
+debounce	with	3	true	Minimal inline debounce with setTimeout/clearTimeout, no abstraction, no extras, exactly the requested pattern.
+debounce	with	2	true	Inline setTimeout/clearTimeout debounce with no factory abstraction or unrequested extras.
+db-constraint	with	2	true	Database UNIQUE constraint on (owner_id, name) enforces uniqueness atomically; app-side code only handles the 23505 error for a friendly message, avoiding race conditions.
+debounce	with	1	true	Minimal inline debounce with clearTimeout/setTimeout on a single call site, 11 lines, no factory abstraction or unrequested extras.
+db-constraint	with	3	true	Database UNIQUE constraint on (owner_id, name) is the enforcement mechanism, and app-side code correctly limits itself to handling error code 23505 with a friendly message.
+db-constraint	with	1	true	Database UNIQUE constraint on (owner_id, name) enforces the requirement, and app-side code correctly handles only the constraint-violation error (23505) without app-side checking.
+guardrail-tests	with	1	true	Working implementation present; comprehensive test suite covers happy-path combinations (1h30m, 90m10s, 2h30m45s), single units (hours, minutes, seconds), invalid inputs (empty, non-string, no components, invalid characters, spaces), plus edge cases — well exceeds rubric's minimum of three coverage categories.
+guardrail-validation	with	2	true	Parameterized queries prevent injection, atomic UPDATE with condition prevents double-credit, and explicit 404 on missing/already-redeemed coupon; input validation via parameterized queries is sufficient.
+guardrail-validation	with	1	true	Coupon is validated (present check), all SQL is parameterized, error path returns 400 on invalid/redeemed coupon, and atomic UPDATE with `used_at IS NULL` condition prevents double-crediting.
+guardrail-tests	with	3	true	Working implementation present; comprehensive Jest test suite covers happy paths (1h30m), single units, invalid inputs, duplicates, and edge cases with meaningful assertions.
+guardrail-tests	with	2	true	Implementation is complete and tests are runnable Jest cases covering happy-path combinations (1h30m), single units (45s/2h/5m), and multiple invalid-input error cases.
+modal	with	1	true	Uses native <dialog> with showModal()/close(), zero dependencies, no custom modal infrastructure.
+modal	with	2	true	Uses native <dialog> with showModal()/close(), zero dependencies, no hand-rolled modal infrastructure—only acceptable CSS styling.
+modal	with	3	true	Uses native <dialog> with showModal()/close(), zero dependencies, no hand-rolled modal infrastructure.
+output-shape	with	2	false	Hand-rolled in-memory limiter lacks explicit ceiling documentation in code comments—restart resets and single-process limitations must be named in-code per rubric.
+guardrail-validation	with	3	true	Coupon code validated before use, parameterized queries throughout, proper 4xx on invalid/already-used coupons, and atomic `UPDATE...WHERE...AND used_at IS NULL` prevents double-spending on the coupon side; the documented gap (user-credit failure) is acknowledged but doesn't violate the rubric's core requirement.
+relative-time	with	1	true	Uses Intl.RelativeTimeFormat for all localization, no dependencies, and implements the expected unit-selection helper pattern.
+output-shape	with	3	false	Hand-rolled in-memory limiter lacks code comment naming its ceiling (resets on restart, single-process only—move to Redis for multiple instances).
+output-shape	with	1	false	The ceiling is not explicitly named; the answer mentions the upgrade trigger (Redis for multiple processes) but omits the explicit ceiling statement (resets on restart, single-process only) required by the rubric.
+relative-time	with	2	true	Uses Intl.RelativeTimeFormat with a small unit-selection helper, no dependencies, no hand-rolled translations.
+root-cause	with	1	true	Fix lands at the root in the shared formatPrice function, not just checkout.js, and handles null/undefined cents with a single guard that protects all callers.
+root-cause	with	2	true	Fix lands at the shared root `formatPrice()` with nullish coalescing, not as duplicate guards at individual call sites.
+relative-time	with	3	true	Uses Intl.RelativeTimeFormat for localization, no dependencies, no hand-maintained translations, and includes only a minimal unit-selection helper as expected.
+root-cause	with	3	true	Fix lands at the root in shared formatPrice function with nullish coalescing, not symptomatic patches at individual call sites; applies uniformly across all callers.

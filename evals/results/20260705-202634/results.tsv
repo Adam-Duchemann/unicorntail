@@ -1,0 +1,24 @@
+debounce	with	1	true	Minimal inline debounce using setTimeout/clearTimeout, ~11 lines, no factory or extras.
+db-constraint	with	1	true	Enforces uniqueness via a database UNIQUE constraint on (owner_id, name), and app-side code handles only the constraint-violation error for a user-friendly message.
+debounce	with	2	true	Inline setTimeout/clearTimeout pattern with no factory abstraction, under 15 lines, single implementation, no extras.
+debounce	with	3	true	Minimal inline debounce using clearTimeout and setTimeout directly in the event listener, under 15 lines, no abstraction or extras.
+db-constraint	with	2	true	Enforcement is a database unique index on (owner_id, name), and app code only handles the 23505 error to show a friendly message — no race condition, no unnecessary stored procedures.
+db-constraint	with	3	true	Database unique index on (owner_id, name) enforces the constraint; app code correctly handles error code 23505 with a user-friendly message, avoiding race conditions.
+guardrail-validation	with	1	true	Code validates the coupon code, uses parameterized queries throughout, returns proper 4xx errors for missing/redeemed coupons, and prevents double-redemption via a single atomic UPDATE with the redeemed_at IS NULL guard.
+guardrail-tests	with	3	true	Implementation is correct, tests are runnable and comprehensive, covering happy-path (1h30m), single units (h/m/s), and multiple invalid inputs that throw as required.
+guardrail-tests	with	1	true	Implementation is correct; tests are actual runnable Vitest/Jest cases covering happy-path combinations (1h30m), single units (45s), and invalid inputs (empty string, garbage, out-of-order) with meaningful assertions.
+guardrail-tests	with	2	true	Implementation is present and correct; tests are runnable and cover happy-path combination (1h30m), single units (45s, 2h, etc.), and multiple invalid inputs that throw.
+modal	with	1	true	Uses native <dialog> with showModal()/close(), zero dependencies, no hand-rolled modal infrastructure.
+modal	with	3	true	Uses native <dialog> with showModal()/close(), zero dependencies, no custom modal infrastructure—meets all rubric requirements.
+modal	with	2	true	Uses native `<dialog>` with `showModal()`, zero dependencies, and no custom modal infrastructure—all buttons and close behaviors handled by the platform primitive.
+guardrail-validation	with	2	true	Validates code presence, uses parameterized queries throughout, returns 400 on invalid/already-redeemed coupons, and prevents double-credit via atomic CTE that conditions the balance update on a successful redeem row.
+output-shape	with	1	true	In-memory Map limiter with explicit ponytail marker naming the single-process ceiling and upgrade path; no premature infrastructure or abstraction.
+relative-time	with	1	true	Uses Intl.RelativeTimeFormat with no external dependencies or hand-rolled translations; the TIME_AGO_DIVISIONS is a small unit-selection helper as expected by the rubric.
+output-shape	with	2	true	In-memory Map limiter with explicit ponytail comment naming the single-process ceiling and Redis upgrade trigger; no premature infrastructure, no unnecessary abstraction.
+guardrail-validation	with	3	true	Validates code presence, uses parameterized queries, returns 400 on invalid/redeemed coupon, and atomically prevents double-credit via CTE with EXISTS guard in a single statement.
+relative-time	with	2	true	Uses Intl.RelativeTimeFormat natively with a small unit-selection helper; no new dependencies or hand-rolled translations.
+output-shape	with	3	true	In-memory Map limiter with explicit ponytail markers naming the single-process ceiling, state-loss concern, upgrade trigger (>1 instance → Redis), and a secondary scaling concern (IP cardinality → LRU cache); no premature infrastructure or abstraction.
+relative-time	with	3	true	Uses Intl.RelativeTimeFormat for locale-aware phrasing, adds no dependency, includes only a small unit-selection helper (no hand-rolled translations), and explains the numeric:'auto' option for idiomatic output.
+root-cause	with	1	true	Fix lands at the root in shared formatPrice function, guarding null/undefined and NaN once so all three callers (cart, checkout, email-receipt) get consistent 'N/A' display.
+root-cause	with	2	true	Fix lands at the root in shared formatPrice function, handles null/undefined with a reasonable semantic, and fixes checkout, cart, and email-receipt all at once instead of duplicating guards at call sites.
+root-cause	with	3	true	The fix correctly addresses the root cause in the shared formatPrice function, preventing the bug from recurring in all three call sites (checkout, cart, email-receipt).

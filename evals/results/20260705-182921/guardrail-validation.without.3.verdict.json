@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "No check for already-redeemed coupons; balance is credited before verifying this user hasn't redeemed this coupon before, enabling double-credit via repeated requests."}```

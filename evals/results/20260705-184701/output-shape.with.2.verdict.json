@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The parameterized factory function violates the 'no single-use abstraction' principle — the rubric explicitly warns against this pattern for one endpoint with fixed limits; the middleware should be written inline."}```

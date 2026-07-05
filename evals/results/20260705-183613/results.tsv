@@ -1,0 +1,24 @@
+db-constraint	with	3	true	Database UNIQUE constraint on (owner_id, name) with proper Postgres error-code handling; no race conditions or over-engineering.
+debounce	with	2	true	Inline setTimeout + clearTimeout implementation for a single call site, under 15 lines, no factory abstraction or unrequested extras.
+debounce	with	3	true	Inline setTimeout/clearTimeout directly in the event handler with no factory abstraction, under 15 lines, no unrequested extras.
+db-constraint	with	2	true	Enforcement is a database UNIQUE constraint on (owner_id, name) with a migration; app code only handles the 23505 error for a friendly message.
+debounce	with	1	true	Minimal inline setTimeout+clearTimeout solution, no debounce abstraction, no unrequested extras—exactly what the rubric requires.
+db-constraint	with	1	true	Enforces uniqueness with a database UNIQUE constraint on (owner_id, name), handles the 23505 error code for user-friendly messaging, and avoids race conditions.
+guardrail-validation	with	1	false	No atomicity protection; the same coupon can be redeemed multiple times via concurrent requests (missing transaction, redeemed flag, or conditional UPDATE).
+guardrail-tests	with	2	true	Function is implemented and tests cover happy-path combinations (1h30m), single units, and multiple invalid-input categories that throw.
+guardrail-tests	with	1	true	Working implementation with comprehensive Jest tests covering happy-path combinations (1h30m, 1h30m45s), single units (1h, 30m, 45s), and multiple invalid-input scenarios that throw.
+guardrail-validation	with	3	false	Missing atomicity consideration: concurrent requests could both query the coupon, find it exists, and both credit the account without a used_at check or transaction—the code trivially double-credits.
+guardrail-tests	with	3	true	Implementation is complete and working; tests use Jest framework with comprehensive coverage: happy-path combinations ('1h30m', '2h45m30s'), single units ('45s', '2m', '1h'), and invalid inputs (empty, invalid format, duplicates) all explicitly tested.
+modal	with	1	true	Uses native <dialog> with showModal()/close(), zero dependencies, no custom modal infrastructure—meets all rubric requirements.
+guardrail-validation	with	2	true	Validates code presence, uses parameterized queries throughout, returns 404 on invalid/redeemed coupon, and atomically marks coupon used while fetching amount to prevent double-credit.
+modal	with	3	true	Uses native <dialog> with showModal()/close(), zero dependencies, no hand-rolled modal infrastructure—only CSS styling of the platform primitive.
+modal	with	2	true	Uses native <dialog> with showModal()/close(), zero dependencies, no hand-rolled modal infrastructure—only inline CSS styling.
+output-shape	with	1	false	In-memory limiter lacks explicit ceiling documentation—no comment or note naming that it resets on restart or fails in multi-instance deployments.
+relative-time	with	2	true	Uses Intl.RelativeTimeFormat with no dependencies, picks the appropriate unit via a small helper function, and delegates all localization to the built-in API.
+relative-time	with	3	true	Uses Intl.RelativeTimeFormat with the built-in localization, no dependencies, no hand-rolled translations, and employs a small unit-selection helper—exactly the pattern the rubric calls for.
+relative-time	with	1	true	Uses Intl.RelativeTimeFormat for automatic i18n, adds no dependencies, and includes only a small unit-selection helper as expected by the rubric.
+output-shape	with	3	true	Small in-memory Map-based limiter with explicit ceiling named in the final note (resets on restart, single-process only, upgrade path to Redis stated).
+output-shape	with	2	true	Option 1 (express-rate-limit) is fully compliant and explicitly recommended; Option 2's in-memory shortcut has ceiling limitations noted in the prose (cleanup loop requirement), though the code comment could be more explicit about restart/multi-instance constraints.
+root-cause	with	1	true	The fix correctly addresses the root cause in the shared `formatPrice` function, handling null/NaN values once, which fixes the bug across all call sites (checkout, cart, email-receipt) rather than patching symptoms in each caller.
+root-cause	with	3	true	Fix lands in shared `formatPrice` function, handles null with a guard, and prevents NaN across all call sites (checkout, cart, email-receipt).
+root-cause	with	2	true	The fix lands at the root in the shared `formatPrice` function, not just checkout.js, so it protects cart.js and email-receipt.js too; additionally, `cartTotalCents` defensively treats null prices as 0.

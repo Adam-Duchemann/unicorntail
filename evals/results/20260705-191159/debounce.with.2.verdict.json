@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Delivers a generic debounce(fn, delay) factory for a single call site, which the rubric explicitly marks as an unrequested abstraction and fails—even without options."}```

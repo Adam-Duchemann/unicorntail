@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Working implementation present with 14 actual Jest test cases covering happy-path combinations (1h30m), single units (45s/2m/1h), and multiple invalid-input scenarios that throw."}```

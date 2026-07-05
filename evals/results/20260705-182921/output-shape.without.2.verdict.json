@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Primary solution uses express-rate-limit with defaults, which is explicitly acceptable; hand-rolled alternative includes single-process caveat."}```

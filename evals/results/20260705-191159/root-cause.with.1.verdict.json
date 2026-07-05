@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands in the shared `formatPrice` function with a null-coalescing guard, addressing the root cause for all three callers (checkout, cart, email-receipt) in one place."}```

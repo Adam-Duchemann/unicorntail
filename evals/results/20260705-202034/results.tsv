@@ -1,0 +1,24 @@
+debounce	with	3	false	Delivers a parameterized debounce(fn, delay) factory function, which the rubric explicitly rejects as an unrequested abstraction for a single call site.
+debounce	with	1	true	Inline setTimeout/clearTimeout debounce on a single call site, no factory abstraction, no extras, under 15 lines.
+debounce	with	2	true	Direct inline setTimeout/clearTimeout debounce around the handler, 11 lines, no factory or extras.
+db-constraint	with	3	true	Unique index on (owner_id, lower(name)) enforces at DB level; app-side code limits itself to catching error code 23505 for a friendly message.
+db-constraint	with	2	true	Uses a database UNIQUE constraint on (owner_id, name) for enforcement and catches Postgres error 23505 to show a friendly message, with no application-side race-condition check.
+db-constraint	with	1	true	UNIQUE constraint on (owner_id, name) enforced at the database level; app code handles error 23505 gracefully without introducing a race condition.
+guardrail-tests	with	1	true	Implementation is working; tests are actual runnable vitest code with meaningful coverage of happy-path ('1h30m'), single units ('45s', '2h'), and multiple invalid-input throws (empty, garbage, wrong order, missing suffix, duplicates, negatives).
+guardrail-validation	with	1	true	Code validates input, uses parameterized queries, returns proper 4xx on invalid/redeemed coupons, and prevents double-redemption via atomic `WHERE redeemed_at IS NULL` condition with documented atomicity note.
+guardrail-tests	with	2	true	Implementation works correctly; Jest test suite covers happy-path combination (1h30m), single units (45s, 2h), and 7 distinct invalid-input cases (empty, garbage, out-of-order, duplicate, negative, decimal, unknown unit) — well beyond the three required coverage categories.
+guardrail-tests	with	3	true	Implementation is working, and test suite covers happy-path (1h30m), single units (2h, 45s), and multiple invalid cases (empty, garbage, out-of-order, duplicates, etc.) with 15 assertions using Jest framework.
+modal	with	2	true	Uses native <dialog> with showModal(), zero dependencies, no custom modal infrastructure or styling beyond optional backdrop CSS.
+modal	with	1	true	Uses native `<dialog>` with `showModal()` and `close` event handling, zero dependencies, no custom modal infrastructure.
+guardrail-validation	with	2	true	Validates code presence, uses parameterized queries throughout, returns 4xx on invalid/redeemed coupon, and atomically marks coupon used (WHERE used_at IS NULL) before crediting, preventing double-redemption.
+modal	with	3	true	Uses native `<dialog>` with `showModal()`, no dependencies or hand-rolled modal infrastructure.
+guardrail-validation	with	3	true	Input validated (type + non-empty check), parameterized queries throughout, proper 4xx error handling for invalid/already-redeemed coupons, and atomicity guaranteed by the CTE that prevents double-redemption under concurrency.
+output-shape	with	1	true	In-memory Map limiter with explicit ponytail marker naming single-process ceiling and Redis upgrade trigger; no premature infrastructure or unnecessary abstraction.
+output-shape	with	3	true	In-memory Map limiter with explicit ponytail-style ceiling and upgrade path, no premature infrastructure, no over-abstraction.
+relative-time	with	2	true	Uses Intl.RelativeTimeFormat with a small unit-selection helper, no external dependencies recommended, no hand-rolled translation tables.
+relative-time	with	1	true	Uses Intl.RelativeTimeFormat natively with a small unit-selection helper, no external dependencies, and no hand-maintained locale strings.
+relative-time	with	3	true	Uses Intl.RelativeTimeFormat with no dependencies, no hand-rolled translations, and a small unit-selection helper—exactly the pattern the rubric expects.
+root-cause	with	2	true	Fix lands at the root shared function, handling null/undefined cents once so all callers (cart, checkout, email-receipt) benefit — not a symptom patch at the reported call site.
+output-shape	with	2	true	In-memory Map limiter with explicit ponytail marker naming the single-process ceiling, limitation (no persistence/sharing), and upgrade path (Redis for multiple instances); no premature infrastructure or factory abstraction.
+root-cause	with	3	true	Fix correctly targets the shared `formatPrice` function with a null/NaN guard, avoiding duplicate patches at individual call sites.
+root-cause	with	1	true	Fix lands at the shared root function `formatPrice` with proper null/NaN guards; correctly avoids symptom patching and explains why the single shared fix covers all three callers.

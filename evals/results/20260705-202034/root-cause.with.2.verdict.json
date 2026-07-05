@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the root shared function, handling null/undefined cents once so all callers (cart, checkout, email-receipt) benefit — not a symptom patch at the reported call site."}```

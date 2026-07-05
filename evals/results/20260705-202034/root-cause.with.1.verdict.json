@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the shared root function `formatPrice` with proper null/NaN guards; correctly avoids symptom patching and explains why the single shared fix covers all three callers."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Working implementation present, actual runnable Jest tests included covering happy-path (1h30m), single units (45s, 2h, 30m), and invalid inputs that throw (empty string, invalid format, negative values, type errors)."}```

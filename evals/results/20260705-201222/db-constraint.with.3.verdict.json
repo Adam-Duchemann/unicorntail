@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses a database UNIQUE constraint on (owner_id, name) with proper DDL, and app-side code only handles the constraint violation error."}```

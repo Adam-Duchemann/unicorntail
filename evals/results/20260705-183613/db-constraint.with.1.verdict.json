@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Enforces uniqueness with a database UNIQUE constraint on (owner_id, name), handles the 23505 error code for user-friendly messaging, and avoids race conditions."}```

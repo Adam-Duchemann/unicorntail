@@ -1,0 +1,1 @@
+```json{  "pass": false,  "reason": "No protection against double-redeeming: code does not check if the coupon has already been redeemed, and two queries without a transaction allow the same coupon to be credited to multiple users or the same user multiple times."}```

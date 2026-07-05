@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Coupon code validated before use, parameterized queries throughout, proper 4xx on invalid/already-used coupons, and atomic `UPDATE...WHERE...AND used_at IS NULL` prevents double-spending on the coupon side; the documented gap (user-credit failure) is acknowledged but doesn't violate the rubric's core requirement."}```

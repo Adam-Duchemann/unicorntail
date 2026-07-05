@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Implementation is correct; tests are actual runnable Vitest/Jest cases covering happy-path combinations (1h30m), single units (45s), and invalid inputs (empty string, garbage, out-of-order) with meaningful assertions."}```

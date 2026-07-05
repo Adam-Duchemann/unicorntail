@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Hand-rolled limiter lacks any comment/note about its single-process ceiling or upgrade path (no 'swap to Redis when scaling' marker), and the parameterized factory createRateLimiter(maxRequests, windowMs) for one endpoint is an unrequested abstraction."}```

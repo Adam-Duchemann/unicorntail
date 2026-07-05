@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses native `<dialog>` with `showModal()` and `close` event handling, zero dependencies, no custom modal infrastructure."}```

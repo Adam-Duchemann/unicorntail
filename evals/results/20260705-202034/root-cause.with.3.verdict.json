@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix correctly targets the shared `formatPrice` function with a null/NaN guard, avoiding duplicate patches at individual call sites."}```

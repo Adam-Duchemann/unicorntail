@@ -1,0 +1,6 @@
+output-shape with 1
+output-shape with 2
+output-shape with 3
+output-shape without 1
+output-shape without 2
+output-shape without 3

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Enforces uniqueness via a proper UNIQUE constraint on (owner_id, name) at the database level, with app-side error handling for the constraint violation."}```

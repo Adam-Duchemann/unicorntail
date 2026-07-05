@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Database UNIQUE constraint on (owner_id, name) with proper Postgres error-code handling; no race conditions or over-engineering."}```

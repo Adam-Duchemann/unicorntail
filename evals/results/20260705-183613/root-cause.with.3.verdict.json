@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands in shared `formatPrice` function, handles null with a guard, and prevents NaN across all call sites (checkout, cart, email-receipt)."}```

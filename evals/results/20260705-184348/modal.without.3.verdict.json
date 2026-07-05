@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Uses hand-rolled modal infrastructure (overlay div with z-index, manual display toggling) instead of native <dialog> or window.confirm() primitives."}```

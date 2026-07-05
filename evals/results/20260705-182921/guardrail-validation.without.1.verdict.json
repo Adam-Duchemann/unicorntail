@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Missing atomicity protection—no transaction, UPDATE conditions, or constraint note to prevent double-crediting if the same coupon is redeemed twice concurrently."}```

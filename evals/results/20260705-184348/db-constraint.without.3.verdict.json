@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Provides a database UNIQUE constraint on (owner_id, name) via migration and limits app-side code to error handling for constraint violations (code 23505)."}```

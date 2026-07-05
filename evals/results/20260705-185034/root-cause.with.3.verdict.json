@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the root in shared `formatPrice` function, handles null/undefined with reasonable semantics, and explicitly addresses all call sites (cart, checkout, email-receipt) without duplication."}```

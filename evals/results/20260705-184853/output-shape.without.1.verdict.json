@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "In-memory Map-based limiter with explicit acknowledgment of the single-process ceiling and Redis upgrade path in the notes."}```

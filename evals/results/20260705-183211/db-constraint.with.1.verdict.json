@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "The answer enforces uniqueness via a database UNIQUE constraint on (owner_id, name) and limits app-side code to error handling for constraint violations—no race-condition-prone SELECT-then-INSERT pattern."}```

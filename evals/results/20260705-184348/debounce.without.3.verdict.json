@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "A parameterized debounce(fn, delay) factory/wrapper is an unrequested abstraction for a single call site; the rubric requires inline setTimeout+clearTimeout logic around the handler, not a reusable utility function."}```

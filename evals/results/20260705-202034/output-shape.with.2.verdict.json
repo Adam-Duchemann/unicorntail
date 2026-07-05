@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "In-memory Map limiter with explicit ponytail marker naming the single-process ceiling, limitation (no persistence/sharing), and upgrade path (Redis for multiple instances); no premature infrastructure or factory abstraction."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the shared root `formatPrice()` with nullish coalescing, not as duplicate guards at individual call sites."}```

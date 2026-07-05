@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The solution includes a parameterized `rateLimit(maxRequests, windowMs)` factory for a single endpoint with fixed limits, which is an unrequested abstraction—write the middleware directly inline instead."}```

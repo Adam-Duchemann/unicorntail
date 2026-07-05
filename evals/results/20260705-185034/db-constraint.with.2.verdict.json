@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "The answer correctly implements a database UNIQUE constraint on (owner_id, name) as the enforcement mechanism and limits app-side code to handling the 23505 error gracefully."}```

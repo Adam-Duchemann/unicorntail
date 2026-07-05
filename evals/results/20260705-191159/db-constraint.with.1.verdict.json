@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Enforces uniqueness via database UNIQUE constraint on (owner_id, name) and limits app-side code to handling Postgres error code 23505 for friendly messaging."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "The fix lands at the root in the shared `formatPrice` function, not just checkout.js, so it protects cart.js and email-receipt.js too; additionally, `cartTotalCents` defensively treats null prices as 0."}```

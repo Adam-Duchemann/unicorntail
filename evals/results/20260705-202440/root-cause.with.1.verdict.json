@@ -1,0 +1,1 @@
+```json{  "pass": true,  "reason": "The fix lands at the root in the shared `formatPrice` function, not at individual call sites, and handles null/NaN uniformly for all callers (checkout, cart, email-receipt)."}```

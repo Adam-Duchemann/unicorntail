@@ -1,0 +1,566 @@
+<title>Unicorntail — ponytail, woven tighter</title>
+<style>
+  :root {
+    --ground: #F4F5F1;
+    --panel: #FBFBF9;
+    --ink: #1E2A32;
+    --muted: #5C6B72;
+    --line: #D8DCD4;
+    --accent: #3A4A8C;
+    --red: #B3372E;
+    --red-soft: #F3E2E0;
+    --ochre: #A67C2E;
+    --green: #2E7D4F;
+    --green-soft: #E2EEE6;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  html { background: var(--ground); }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 16px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px 96px; }
+
+  /* ---------- header ---------- */
+  header { padding: 56px 0 8px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+  .eyebrow strong { color: var(--accent); font-weight: 600; }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(40px, 7vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 18px 0 10px;
+    text-wrap: balance;
+  }
+  .dek {
+    font-family: var(--serif);
+    font-size: clamp(19px, 2.6vw, 23px);
+    line-height: 1.45;
+    color: var(--muted);
+    max-width: 44ch;
+    margin: 0 0 28px;
+    text-wrap: balance;
+  }
+  .weave { display: block; width: 100%; height: auto; margin: 8px 0 40px; }
+
+  /* ---------- stat strip ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin: 0 0 64px;
+  }
+  .stat { background: var(--panel); padding: 18px 20px 16px; }
+  .stat .num {
+    font-family: var(--serif);
+    font-size: 30px;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .num .from { color: var(--red); }
+  .stat .num .mid { color: var(--ochre); }
+  .stat .num .to { color: var(--green); }
+  .stat .num .sep { color: var(--muted); font-size: 22px; }
+  .stat .num.plain { color: var(--ink); font-size: 34px; }
+  .stat .lbl {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* ---------- sections ---------- */
+  section { margin: 0 0 64px; }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  p { max-width: 65ch; margin: 0 0 16px; }
+  .lede { font-size: 17.5px; }
+  code, .mono {
+    font-family: var(--mono);
+    font-size: 0.88em;
+    background: #EAECE6;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  pre {
+    background: #22303A;
+    color: #E8EBE4;
+    padding: 16px 20px;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.55;
+    border-radius: 4px;
+  }
+  pre code { background: none; padding: 0; color: inherit; }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- ladder ---------- */
+  ol.ladder { list-style: none; margin: 24px 0 8px; padding: 0; max-width: 640px; }
+  ol.ladder li {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  ol.ladder li:first-child { border-top: 1px solid var(--line); }
+  .rung {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  ol.ladder b { font-weight: 600; }
+  ol.ladder .why { color: var(--muted); }
+
+  /* ---------- benefits ---------- */
+  .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; margin-top: 28px; }
+  @media (max-width: 640px) { .benefits { grid-template-columns: 1fr; } }
+  .benefit h3 {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .benefit p { font-size: 15px; color: #3D4B53; margin: 0; }
+  .benefit .figure {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- results ---------- */
+  .results-note { font-size: 14px; color: var(--muted); max-width: 65ch; }
+  table.results {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 10px;
+    font-size: 14.5px;
+  }
+  .table-scroll { overflow-x: auto; }
+  table.results th {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    text-align: left;
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  table.results td {
+    padding: 12px 12px 12px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: middle;
+  }
+  table.results td.case { font-weight: 600; white-space: nowrap; }
+  table.results td.what { color: var(--muted); font-size: 13.5px; }
+  .score {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .bar-set { display: flex; flex-direction: column; gap: 3px; min-width: 150px; }
+  .bar { display: flex; align-items: center; gap: 8px; }
+  .bar .track { flex: 1; height: 7px; background: #E7E9E3; position: relative; }
+  .bar .fill { height: 100%; display: block; }
+  .bar.none .fill { background: var(--red); opacity: 0.85; }
+  .bar.pony .fill { background: var(--ochre); opacity: 0.9; }
+  .bar.uni .fill { background: var(--green); }
+  .bar .score { width: 34px; text-align: right; }
+  .bar.none .score { color: var(--red); }
+  .bar.pony .score { color: var(--ochre); }
+  .bar.uni .score { color: var(--green); }
+  tr.total td { border-bottom: none; padding-top: 14px; }
+  tr.total .case { font-family: var(--serif); font-size: 17px; }
+  tr.total .score { font-size: 14px; font-weight: 600; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 14px 0 0;
+  }
+  .legend .chip { display: inline-block; width: 10px; height: 10px; margin-right: 6px; }
+  .legend .chip.r { background: var(--red); }
+  .legend .chip.o { background: var(--ochre); }
+  .legend .chip.g { background: var(--green); }
+
+  /* ---------- callouts ---------- */
+  .callout {
+    border-left: 3px solid var(--green);
+    background: var(--green-soft);
+    padding: 14px 18px;
+    margin: 22px 0;
+    max-width: 68ch;
+    font-size: 15px;
+  }
+  .callout.caveat { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.fair { border-left-color: var(--ochre); background: #F2ECDD; }
+  .callout p { margin: 0; max-width: none; }
+
+  /* ---------- timeline ---------- */
+  ol.timeline { list-style: none; margin: 26px 0 0; padding: 0; }
+  ol.timeline li {
+    display: grid;
+    grid-template-columns: 64px 96px 1fr;
+    gap: 16px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  ol.timeline li:first-child { border-top: 1px solid var(--line); }
+  .v { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+  .vscore {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  ol.timeline li:last-child .vscore { color: var(--green); font-weight: 600; }
+  ol.timeline .note { font-size: 14.5px; color: #3D4B53; }
+  ol.timeline .note b { color: var(--ink); }
+  @media (max-width: 560px) {
+    ol.timeline li { grid-template-columns: 52px 1fr; }
+    ol.timeline .note { grid-column: 1 / -1; }
+  }
+
+  /* ---------- verification ---------- */
+  ul.checks { list-style: none; margin: 22px 0 0; padding: 0; max-width: 70ch; }
+  ul.checks li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+    padding: 9px 0;
+    font-size: 15px;
+  }
+  ul.checks .tick { color: var(--green); font-weight: 700; font-family: var(--mono); }
+
+  footer {
+    border-top: 1px solid var(--ink);
+    padding-top: 20px;
+    font-size: 13.5px;
+    color: var(--muted);
+    max-width: none;
+  }
+  footer p { font-size: 13.5px; margin-bottom: 8px; max-width: none; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .weave path.strand {
+      stroke-dasharray: 1200;
+      stroke-dashoffset: 1200;
+      animation: weave-in 1.6s ease-out forwards;
+    }
+    .weave path.strand:nth-child(2) { animation-delay: 0.15s; }
+    .weave path.strand:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes weave-in { to { stroke-dashoffset: 0; } }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">
+      <span><strong>UNICORNTAIL</strong></span>
+      <span>a.k.a. braid</span>
+      <span>eval-gated code-shape rules</span>
+      <span>TDD build · 2026-07-05</span>
+      <span>ships in ~/.claude/CLAUDE.md</span>
+    </div>
+    <h1>Ponytail, woven tighter.</h1>
+    <p class="dek">The lazy-senior-dev ladder braided into the instruction system you already have — then proven three ways: against no tool, and against ponytail itself.</p>
+
+    <svg class="weave" viewBox="0 0 880 120" role="img" aria-label="Three strands weaving into a single line — two rule systems merged into one">
+      <path class="strand" d="M 20 30 C 120 30, 140 90, 240 90 S 360 30, 460 30 S 580 90, 640 78 C 690 68, 720 60, 880 60" fill="none" stroke="#3A4A8C" stroke-width="3.5" stroke-linecap="round"/>
+      <path class="strand" d="M 20 60 C 120 60, 140 30, 240 30 S 360 90, 460 90 S 580 42, 640 55 C 690 63, 720 60, 880 60" fill="none" stroke="#2E7D4F" stroke-width="3.5" stroke-linecap="round" opacity="0.9"/>
+      <path class="strand" d="M 20 90 C 120 90, 140 60, 240 60 S 360 60, 460 60 S 580 74, 640 66 C 690 60, 720 60, 880 60" fill="none" stroke="#B3372E" stroke-width="3.5" stroke-linecap="round" opacity="0.75"/>
+    </svg>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num"><span class="from">14</span><span class="sep">→</span><span class="mid">19</span><span class="sep">→</span><span class="to">24</span><span style="font-size:18px;color:var(--muted)">/24</span></div>
+        <div class="lbl">no tool → ponytail → unicorntail</div>
+      </div>
+      <div class="stat">
+        <div class="num plain">−45%</div>
+        <div class="lbl">rule tokens per injection vs ponytail</div>
+      </div>
+      <div class="stat">
+        <div class="num plain">~45k</div>
+        <div class="lbl">tokens saved per 31-agent workflow</div>
+      </div>
+      <div class="stat">
+        <div class="num plain">0</div>
+        <div class="lbl">hooks · state files · dependencies</div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <p class="kicker">The idea</p>
+    <h2>Apply ponytail's first question to ponytail</h2>
+    <p class="lede"><a href="https://github.com/DietrichGebert/ponytail">Ponytail</a> (74.6k★) taught AI agents to stop over-building: before writing code, walk a ladder — does this need to exist, is it already in the codebase, does the stdlib or the platform cover it — and stop at the first rung that holds. It works. It is also ~6KB of rules re-injected by lifecycle hooks into every session <em>and every subagent</em>, plus a second instruction system the agent must referee against the one already in CLAUDE.md.</p>
+    <p>Unicorntail is what's left after asking ponytail's own first question — <em>does this need to exist?</em> — of each piece of it. The ladder survives, sharpened. The hooks, the mode-state files, the per-agent re-injection, and the instruction conflicts don't: the rules are rewritten as one pre-reconciled section of the global <code>CLAUDE.md</code>, which already reaches every session and subagent and survives compaction natively. Still a pony's tail — just on a mythical creature.</p>
+  </section>
+
+  <section>
+    <p class="kicker">The rules</p>
+    <h2>Seven rungs, stop at the first that holds</h2>
+    <ol class="ladder">
+      <li><span class="rung">1</span><span><b>Doesn't need to exist?</b> <span class="why">Speculative need = skip it, say so in one line.</span></span></li>
+      <li><span class="rung">2</span><span><b>Already in the codebase?</b> <span class="why">Reuse the helper — re-implementing what lives a few files over is the most common slop.</span></span></li>
+      <li><span class="rung">3</span><span><b>Stdlib does it?</b> <span class="why">Intl over a date lib.</span></span></li>
+      <li><span class="rung">4</span><span><b>Native platform covers it?</b> <span class="why">The platform’s built-in over a new lib (<code>&lt;dialog&gt;</code> over a modal component), CSS over JS, a DB constraint or RLS policy over app-side checks.</span></span></li>
+      <li><span class="rung">5</span><span><b>Installed dependency solves it?</b> <span class="why">Never add a new one for what a few lines can do.</span></span></li>
+      <li><span class="rung">6</span><span><b>One line?</b> <span class="why">One line.</span></span></li>
+      <li><span class="rung">7</span><span><b>Only then:</b> <span class="why">the minimum code that works.</span></span></li>
+    </ol>
+    <p style="margin-top:18px; font-size:15px; color:var(--muted); max-width:65ch;">Plus hard rules the evals enforce: exactly one implementation, no single-use factories, at-most-once operations are atomic, trust boundaries stay guarded however "minimal" the ask, every shortcut marked with its ceiling (<code>// ponytail: &lt;what&gt;, ceiling: &lt;limit&gt;, upgrade when &lt;trigger&gt;</code>) — and process is never on the ladder: test-coverage, i18n, and verification policies always apply in full.</p>
+  </section>
+
+  <section>
+    <p class="kicker">Benefits &amp; savings</p>
+    <h2>What deleting the plumbing buys</h2>
+    <div class="benefits">
+      <div class="benefit">
+        <span class="figure">5.8KB × every agent → 3.1KB × once</span>
+        <h3>−45% per injection, 0 marginal per agent</h3>
+        <p>Ponytail re-injects its ~1,450-token rule body at session start and into <em>each</em> subagent. Unicorntail rides the CLAUDE.md channel that already exists — on a 31-agent review workflow that's ~45,000 tokens that are simply never spent.</p>
+      </div>
+      <div class="benefit">
+        <span class="figure">2 rule systems → 1</span>
+        <h3>No mid-task refereeing</h3>
+        <p>Ponytail's "YAGNI applies to tests too" and three-line output rule can conflict with the test-coverage gates and evidence-backed reporting you already enforce. Unicorntail resolves the conflicts once, at authoring time — the agent never burns reasoning on arbitration.</p>
+      </div>
+      <div class="benefit">
+        <span class="figure">install: none · rollback: delete a section</span>
+        <h3>Nothing to break</h3>
+        <p>No lifecycle hooks, no Node dependency, no mode-state files, and the rules can't silently drop off after compaction. The failure surface is a block of text.</p>
+      </div>
+      <div class="benefit">
+        <span class="figure">14/24 → 19/24 → 24/24</span>
+        <h3>Beats the tool it distilled</h3>
+        <p>Ponytail lifts the baseline meaningfully — and unicorntail passes everything ponytail passes, plus the five runs it drops: two over-builds and, critically, all three money-path safety runs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Test results</p>
+    <h2>Three arms: no tool, ponytail, unicorntail</h2>
+    <p class="results-note">Haiku 4.5 subject (the weakest tier — the harshest test of whether rules land), 3 runs per case, LLM-judged against fixed PASS/FAIL rubrics, all arms graded identically. Ponytail's arm injects its actual 5.8KB skill body through the same mechanism as unicorntail's 3.1KB. Baselines measured with the shipped section removed.</p>
+
+    <div class="table-scroll">
+      <table class="results">
+        <thead>
+          <tr>
+            <th>Case</th>
+            <th>What it baits</th>
+            <th style="min-width:200px">no tool → ponytail → unicorntail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="case">debounce</td>
+            <td class="what">generic factory, alternatives menu, demo scaffolding</td>
+            <td>
+              <div class="bar-set">
+                <div class="bar none"><span class="track"><span class="fill" style="width:33%"></span></span><span class="score">1/3</span></div>
+                <div class="bar pony"><span class="track"><span class="fill" style="width:67%"></span></span><span class="score">2/3</span></div>
+                <div class="bar uni"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="case">modal</td>
+            <td class="what">a dependency for what native <code>&lt;dialog&gt;</code> does</td>
+            <td>
+              <div class="bar-set">
+                <div class="bar none"><span class="track"><span class="fill" style="width:33%"></span></span><span class="score">1/3</span></div>
+                <div class="bar pony"><span class="track"><span class="fill" style="width:67%"></span></span><span class="score">2/3</span></div>
+                <div class="bar uni"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="case">relative-time</td>
+            <td class="what">a date lib where <code>Intl</code> suffices</td>
+            <td>
+              <div class="bar-set">
+                <div class="bar none"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+                <div class="bar pony"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+                <div class="bar uni"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="case">db-constraint</td>
+            <td class="what">app-side check-then-insert race vs unique constraint</td>
+            <td>
+              <div class="bar-set">
+                <div class="bar none"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+                <div class="bar pony"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+                <div class="bar uni"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="case">guardrail-validation</td>
+            <td class="what">"keep it minimal" bait on a money-moving endpoint</td>
+            <td>
+              <div class="bar-set">
+                <div class="bar none"><span class="track"><span class="fill" style="width:0%"></span></span><span class="score">0/3</span></div>
+                <div class="bar pony"><span class="track"><span class="fill" style="width:0%"></span></span><span class="score">0/3</span></div>
+                <div class="bar uni"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="case">guardrail-tests</td>
+            <td class="what">YAGNI-ing away explicitly requested tests</td>
+            <td>
+              <div class="bar-set">
+                <div class="bar none"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+                <div class="bar pony"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+                <div class="bar uni"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="case">root-cause</td>
+            <td class="what">symptom patch at the reported call site only</td>
+            <td>
+              <div class="bar-set">
+                <div class="bar none"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+                <div class="bar pony"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+                <div class="bar uni"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="case">output-shape</td>
+            <td class="what">shipping a shortcut silently, ceiling unmarked</td>
+            <td>
+              <div class="bar-set">
+                <div class="bar none"><span class="track"><span class="fill" style="width:0%"></span></span><span class="score">0/3</span></div>
+                <div class="bar pony"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+                <div class="bar uni"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">3/3</span></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="total">
+            <td class="case">Total</td>
+            <td class="what"></td>
+            <td>
+              <div class="bar-set">
+                <div class="bar none"><span class="track"><span class="fill" style="width:58%"></span></span><span class="score">14/24</span></div>
+                <div class="bar pony"><span class="track"><span class="fill" style="width:79%"></span></span><span class="score">19/24</span></div>
+                <div class="bar uni"><span class="track"><span class="fill" style="width:100%"></span></span><span class="score">24/24</span></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span><span class="chip r"></span>no tool (bare model)</span>
+      <span><span class="chip o"></span>ponytail v4.8.4 (5.8KB)</span>
+      <span><span class="chip g"></span>unicorntail (3.1KB)</span>
+    </div>
+
+    <div class="callout">
+      <p><b>The safety gap is the headline.</b> On the money-moving endpoint, both the bare model <em>and ponytail</em> wrote a coupon redeem that double-credits under concurrency in every single run — ponytail's guardrails are abstract prose ("error handling that prevents data loss"). Unicorntail's are concrete patterns (mark-consumed atomically, conditional <code>UPDATE … WHERE used_at IS NULL</code>) and went 3/3. Credit where due: ponytail aces the shortcut-marking case — the <code>ponytail:</code> comment convention is its invention, and unicorntail keeps it.</p>
+    </div>
+
+    <div class="callout fair">
+      <p><b>Fairness note.</b> Unicorntail was iterated four times against these rubrics; ponytail ran cold, no iterations. Same injection mechanism, same judge, same rubrics for all arms — but treat the 19 vs 24 gap as "tuned vs untuned on this suite", not a universal ranking. The 0/3 safety result, though, matches ponytail's design: its rules simply don't encode atomicity.</p>
+    </div>
+
+    <p class="results-note"><b>Tier check</b> — Sonnet subject on the hardest case (output-shape): unicorntail 3/3, no tool 2/3. Haiku shows residual variance on one habit (a single-use factory, 3/5 in one run); acceptable when small models only explore and never write shipped code — Sonnet is the implementation floor, and it's clean there.</p>
+  </section>
+
+  <section>
+    <p class="kicker">How it was built</p>
+    <h2>Test-driven, four iterations to green</h2>
+    <p>The eval suite came first — 8 cases with fixed rubrics, run RED against the bare baseline — then the rule text was iterated until the with-arm went green. Each version taught something about how small models actually read rules:</p>
+    <ol class="timeline">
+      <li><span class="v">v1</span><span class="vscore" style="color:var(--red)">12/24</span><span class="note">Polite prose. The rules verifiably reached the model — and changed almost nothing. <b>Guidance isn't behavior.</b></span></li>
+      <li><span class="v">v2</span><span class="vscore">21/24</span><span class="note">Hard rules: "deliver exactly ONE implementation", explicit factory ban. Debounce and modal fixed.</span></li>
+      <li><span class="v">v3</span><span class="vscore">22/24</span><span class="note">At-most-once atomicity pattern (conditional <code>UPDATE … WHERE used_at IS NULL</code>). The money-path case went 0/3 → 3/3.</span></li>
+      <li><span class="v">v4</span><span class="vscore">24/24</span><span class="note"><code>ponytail:</code> marker given as a copyable template plus a one-line pre-send self-check. Marker adoption: <b>0/5 → 5/5</b>. Small models copy templates; they ignore abstract conventions.</span></li>
+    </ol>
+    <p style="margin-top:18px; font-size:14px; color:var(--muted);">Two rubrics were corrected along the way — once too lenient (single-use options factories slipped through), once too literal (demanding exact ceiling phrasing). Fixing tests in both directions is part of the discipline. The entire loop ran on Haiku (subject + judge) with one Sonnet spot-check; zero eval tokens at frontier pricing. The ponytail head-to-head arm ran after green, with the shipped section temporarily removed for a clean environment.</p>
+  </section>
+
+  <section>
+    <p class="kicker">Verification</p>
+    <h2>Live canaries, post-ship</h2>
+    <ul class="checks">
+      <li><span class="tick">✓</span><span><b>Fresh session, zero injection:</b> the debounce prompt produced the 11-line inline solution — no factory, no alternatives. The CLAUDE.md carriage works (pre-ship baseline passed this 1 in 3).</span></li>
+      <li><span class="tick">✓</span><span><b>Subagent carriage:</b> a probe agent in a fresh session quoted the ladder's first sentence verbatim from its own context — the rules reach spawned agents with no SubagentStart hook.</span></li>
+      <li><span class="tick">✓</span><span><b>Fixture hygiene:</b> the <code>braid</code> skills-dir plugin stays disabled (eval fixture only); enabling it would double-inject alongside CLAUDE.md.</span></li>
+    </ul>
+    <div class="callout caveat">
+      <p><b>Known caveats.</b> Mid-session CLAUDE.md edits don't reach already-running sessions (snapshot at start) — restart to pick up. And since the ladder ships in CLAUDE.md, clean baseline or head-to-head arms require temporarily removing the section (the runner's documented re-baseline procedure — used for the ponytail arm above, then restored byte-identical).</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Regression gate</p>
+    <h2>Re-run it anytime</h2>
+    <pre><code>~/.claude/skills/braid/bin/run-evals.sh with 3           # full unicorntail arm, 8 cases
+~/.claude/skills/braid/bin/run-evals.sh both 3 modal     # one case, both arms
+BRAID_MODEL=sonnet …/run-evals.sh with 3                 # subject-tier override
+BRAID_RULES=&lt;file&gt; …/run-evals.sh with 3                 # eval any rule set (how the ponytail arm ran)</code></pre>
+    <p style="font-size:14px; color:var(--muted); max-width:68ch;">The runner drives <code>evals/*/prompt.md</code> + <code>graders/rubric.md</code> — the same layout as <code>claude plugin eval</code> (server-gated early access at build time), so migration to the native harness is a rename when it unlocks.</p>
+  </section>
+
+  <footer>
+    <p><b style="color:var(--ink)">Credit where due:</b> the ladder, the guardrails, and the <code>ponytail:</code> comment convention are distilled from <a href="https://github.com/DietrichGebert/ponytail">DietrichGebert/ponytail</a> v4.8.4 (MIT). Unicorntail just deletes the plumbing — which, we're told, is the best code of all.</p>
+    <p>Unicorntail (a.k.a. braid) · TDD build 2026-07-05 · fixture &amp; suite at <span class="mono">~/.claude/skills/braid/</span> · ships as "Code shape: the ladder" in <span class="mono">~/.claude/CLAUDE.md</span> · named for what a ponytail becomes on a mythical creature</p>
+  </footer>
+</div>

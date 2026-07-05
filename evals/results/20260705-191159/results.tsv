@@ -1,0 +1,24 @@
+debounce	with	1	true	Minimal inline debounce using clearTimeout + setTimeout, no factory abstraction, single implementation, no extras.
+debounce	with	2	false	Delivers a generic debounce(fn, delay) factory for a single call site, which the rubric explicitly marks as an unrequested abstraction and fails—even without options.
+db-constraint	with	2	true	Database-level unique constraint on (owner_id, name) enforces the requirement, with app-side error handling limited to translating the 23505 violation code.
+debounce	with	3	true	Inline setTimeout/clearTimeout pattern applied directly to the search input handler, under 15 lines, no abstraction or extras.
+db-constraint	with	3	true	UNIQUE constraint on (owner_id, name) enforces the requirement at the database level, and app-side code correctly handles only the constraint-violation error (23505) for a friendly message.
+db-constraint	with	1	true	Enforces uniqueness via database UNIQUE constraint on (owner_id, name) and limits app-side code to handling Postgres error code 23505 for friendly messaging.
+guardrail-tests	with	2	true	Working implementation present; 14 comprehensive Jest tests covering happy paths (1h30m, combinations), single units (h/m/s), and invalid inputs (empty string, non-string, no units, invalid unit, malformed syntax, spaces) — well beyond the three required categories.
+guardrail-tests	with	3	true	Working implementation present; comprehensive runnable Jest tests covering happy-path combinations (1h30m), single units (1h, 30m, 45s), and multiple invalid-input throws with proper error messages.
+guardrail-validation	with	3	false	No atomicity consideration prevents double-crediting: lacks transaction, single UPDATE with conditions, or explicit constraint note; same coupon could be redeemed twice.
+guardrail-tests	with	1	true	Implementation is correct; tests use vitest framework with comprehensive coverage of happy-path combinations (1h30m, 2h30m45s), single units (1h, 30m, 45s), and multiple invalid inputs that throw.
+modal	with	1	false	Answer includes a custom modal component with overlay divs and z-index management as an alternative, which violates the rubric's explicit prohibition against hand-rolled modal infrastructure.
+modal	with	3	true	Uses native <dialog> with showModal()/close(), zero dependencies, no custom modal infrastructure—only CSS styling of the native element.
+modal	with	2	true	Uses native <dialog> with showModal()/close(), zero dependencies, proper ::backdrop pseudo-element, no custom overlay/focus-trap code.
+guardrail-validation	with	2	false	Code is vulnerable to race conditions between the SELECT and UPDATE operations; lacks required atomicity consideration (no transaction, single UPDATE with conditions, or explicit constraint note).
+output-shape	with	1	true	In-memory Map limiter with upgrade path acknowledged in prose note (
+guardrail-validation	with	1	false	Lacks atomicity safeguard: concurrent requests with the same coupon can both pass the SELECT check before either UPDATE runs, enabling double-crediting; needs transaction, single atomic UPDATE with conditions, or explicit constraint note.
+relative-time	with	1	true	Uses Intl.RelativeTimeFormat with no new dependencies, no hand-rolled translations, and a lean unit-selection helper exactly as specified by the rubric.
+output-shape	with	3	true	In-memory Map limiter with fixed config applied directly to one route; the prose note adequately acknowledges the upgrade trigger ('scale to multiple processes'), naming both the ceiling and the swap-to-Redis upgrade path.
+relative-time	with	2	true	Uses Intl.RelativeTimeFormat for localization, includes no dependencies, has no translation tables—just a small unit-selection helper as expected.
+root-cause	with	1	true	Fix lands in the shared `formatPrice` function with a null-coalescing guard, addressing the root cause for all three callers (checkout, cart, email-receipt) in one place.
+output-shape	with	2	true	Hand-rolled in-memory limiter is clean, limit/upgrade path is acknowledged in prose note about stale IPs, no premature infrastructure, and express-rate-limit alternative is offered.
+relative-time	with	3	true	Uses Intl.RelativeTimeFormat with a small unit-selection helper; no dependencies, no hand-rolled translations.
+root-cause	with	3	true	Fix lands at the root in the shared `formatPrice` function with a null guard that prevents NaN everywhere (cart, checkout, email-receipt), not just the reported call site.
+root-cause	with	2	true	Fix lands at the root in the shared formatPrice function, handling null/undefined once for all callers (checkout, cart, email-receipt) instead of duplicating guards at each call site.

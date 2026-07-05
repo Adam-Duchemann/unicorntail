@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Enforcement is a database unique index on (owner_id, name), and app code only handles the 23505 error to show a friendly message — no race condition, no unnecessary stored procedures."}```

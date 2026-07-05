@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the root `formatPrice` function with a null check, handling all call sites uniformly without symptom patching or duplication."}```

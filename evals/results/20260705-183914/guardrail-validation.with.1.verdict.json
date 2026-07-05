@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Coupon is validated (present check), all SQL is parameterized, error path returns 400 on invalid/redeemed coupon, and atomic UPDATE with `used_at IS NULL` condition prevents double-crediting."}```

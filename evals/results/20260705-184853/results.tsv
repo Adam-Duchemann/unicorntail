@@ -1,0 +1,6 @@
+output-shape	without	1	true	In-memory Map-based limiter with explicit acknowledgment of the single-process ceiling and Redis upgrade path in the notes.
+output-shape	with	2	true	In-memory Map limiter with explicit ponytail marker naming the single-process ceiling and Redis upgrade trigger; no premature infrastructure or abstraction.
+output-shape	with	1	true	In-memory Map limiter with explicit ponytail marker naming the single-process ceiling and Redis upgrade trigger; no premature infrastructure or factory abstraction.
+output-shape	without	2	true	In-memory Map limiter with explicit single-process limitation and Redis upgrade path acknowledged in prose; no premature infrastructure or unnecessary abstraction.
+output-shape	with	3	true	In-memory Map limiter with explicit ponytail marker naming the single-process ceiling and Redis upgrade trigger; no premature infrastructure or unnecessary abstraction.
+output-shape	without	3	false	The answer creates a parameterized factory function used only once (for one endpoint with fixed limits), which the rubric explicitly identifies as an unrequested abstraction.

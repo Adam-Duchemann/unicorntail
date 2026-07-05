@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Presents two full alternative implementations (inline and reusable factory) when only one is permitted; the factory variant is a generic reusable debounce utility, violating the rubric's prohibition."}```

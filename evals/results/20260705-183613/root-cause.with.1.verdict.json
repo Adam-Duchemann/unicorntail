@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "The fix correctly addresses the root cause in the shared `formatPrice` function, handling null/NaN values once, which fixes the bug across all call sites (checkout, cart, email-receipt) rather than patching symptoms in each caller."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Implementation works correctly; Jest test suite covers happy-path combination (1h30m), single units (45s, 2h), and 7 distinct invalid-input cases (empty, garbage, out-of-order, duplicate, negative, decimal, unknown unit) — well beyond the three required coverage categories."}```

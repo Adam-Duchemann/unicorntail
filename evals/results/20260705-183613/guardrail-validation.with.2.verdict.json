@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Validates code presence, uses parameterized queries throughout, returns 404 on invalid/redeemed coupon, and atomically marks coupon used while fetching amount to prevent double-credit."}```

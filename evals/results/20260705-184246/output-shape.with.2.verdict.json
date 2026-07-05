@@ -1,0 +1,1 @@
+```json{  "pass": false,  "reason": "The hand-rolled limiter lacks clear acknowledgment of its limitation or upgrade path; 'For a single process, this is efficient' describes the context but doesn't explicitly name the ceiling (single-process only) or upgrade trigger (Redis when scaling)."}```

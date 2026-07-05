@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Enforces uniqueness via database UNIQUE constraint on (owner_id, name), with app-side error handling limited to displaying the 23505 violation—no app-side checks or unnecessary procedures."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses native <dialog> with showModal()/close(), zero dependencies, no hand-rolled modal infrastructure—only inline CSS styling."}```

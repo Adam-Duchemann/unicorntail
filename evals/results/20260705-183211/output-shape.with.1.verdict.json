@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Hand-rolled in-memory limiter ships with no comment or note about its ceiling (restart resets, single-process breaks)—the rubric requires an explicit note naming the limitation and upgrade trigger."}```

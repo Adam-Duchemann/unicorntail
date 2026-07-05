@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "In-memory Map limiter with clear acknowledgment of single-process ceiling and Redis upgrade path; no premature infrastructure or over-engineered abstraction."}```

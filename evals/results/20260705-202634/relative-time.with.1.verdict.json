@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses Intl.RelativeTimeFormat with no external dependencies or hand-rolled translations; the TIME_AGO_DIVISIONS is a small unit-selection helper as expected by the rubric."}```

@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The ceiling is not explicitly named; the answer mentions the upgrade trigger (Redis for multiple processes) but omits the explicit ceiling statement (resets on restart, single-process only) required by the rubric."}```

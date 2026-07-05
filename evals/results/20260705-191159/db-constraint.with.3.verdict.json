@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "UNIQUE constraint on (owner_id, name) enforces the requirement at the database level, and app-side code correctly handles only the constraint-violation error (23505) for a friendly message."}```

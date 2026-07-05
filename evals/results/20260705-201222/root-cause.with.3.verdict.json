@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix correctly targets the root in the shared formatPrice function with a nullish coalescing guard, avoiding symptom patches or call-site duplication."}```

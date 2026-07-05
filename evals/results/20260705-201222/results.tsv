@@ -1,0 +1,24 @@
+db-constraint	with	2	true	Correctly uses a database UNIQUE constraint on (owner_id, name) for enforcement, with app-side error handling limited to displaying the constraint violation (error code 23505) as a friendly message.
+debounce	with	1	true	Inline setTimeout/clearTimeout debounce, 10 lines of code, no factory abstraction, no unrequested extras.
+db-constraint	with	3	true	Uses a database UNIQUE constraint on (owner_id, name) with proper DDL, and app-side code only handles the constraint violation error.
+debounce	with	3	true	Minimal inline setTimeout/clearTimeout debounce in the event listener, under 15 lines, no factory abstraction or unrequested extras.
+debounce	with	2	false	The answer presents a generic debounce factory as the second implementation, which violates the explicit rubric rule against parameterized debounce(fn, delay) wrappers for a single call site; additionally, two full alternative implementations fail the 'no more than one' criterion.
+db-constraint	with	1	true	Implements database-level UNIQUE constraint on (owner_id, name) with atomic enforcement and app-side error handling for the constraint violation.
+guardrail-tests	with	1	true	Implementation is complete; tests cover happy-path combinations (1h30m, 90m10s), single units (2h, 30m, 45s), and multiple invalid cases that throw, using a real test framework with meaningful assertions.
+guardrail-tests	with	2	true	Implementation is complete and working; tests use Jest syntax with meaningful coverage of happy-path combinations (1h30m), single units (45s, 2h, 30m), and invalid inputs (empty string, malformed formats) that all throw as expected.
+guardrail-tests	with	3	true	Implementation is present and working; tests use Jest syntax with runnable cases covering happy-path combinations (1h30m, 1h30m45s), single units (45s, 30m, 2h), and multiple invalid inputs that throw with appropriate error messages.
+guardrail-validation	with	3	true	Validates coupon presence, uses parameterized queries exclusively, returns 400 for missing/already-redeemed coupons, and achieves atomicity via CTE to prevent double-redemption races.
+modal	with	2	true	Uses native `<dialog>` with `showModal()`/`close()`, zero dependencies, no custom modal infrastructure.
+modal	with	3	true	Uses native <dialog> with showModal()/close(), zero dependencies, no hand-rolled modal infrastructure—only CSS styling which is explicitly allowed.
+modal	with	1	true	Uses native <dialog> with showModal()/close(), zero dependencies, and no custom modal infrastructure—only CSS styling of the native element.
+guardrail-validation	with	1	true	Parameterized queries throughout, atomic double-redeem prevention via the `used_by IS NULL` condition, explicit 404 error path, and balance credited only after verifying the coupon update succeeded.
+guardrail-validation	with	2	true	Code validates input, uses parameterized queries throughout, returns 4xx on invalid/redeemed coupons, and prevents double-credit via WHERE redeemed_at IS NULL with explicit atomicity note.
+output-shape	with	2	true	Hand-rolled in-memory Map limiter with explicit ponytail marker naming the ceiling (single process) and upgrade trigger (multiple instances → Redis); no premature infrastructure, no single-use abstraction.
+output-shape	with	1	true	In-memory limiter with explicit ceiling and upgrade path marked in ponytail comment and prose; no premature infrastructure or single-use abstraction.
+relative-time	with	2	true	Uses Intl.RelativeTimeFormat for localization, adds no dependencies, and includes only a small unit-selection helper before calling the native API—exactly what the rubric requires.
+output-shape	with	3	true	In-memory Map limiter with explicit ponytail marker naming the single-process ceiling and Redis upgrade trigger; no premature infrastructure or abstraction.
+relative-time	with	1	true	Uses Intl.RelativeTimeFormat for localization with no new dependencies; includes a simple unit-selection helper (expected and fine per rubric) before delegating to the built-in API.
+relative-time	with	3	true	Uses Intl.RelativeTimeFormat for native localization with no dependencies, no hand-rolled translations, and only a small unit-selection helper that the rubric explicitly allows.
+root-cause	with	2	true	Fix lands at the root in shared formatPrice() and handles the cart aggregation in cartTotalCents(); does not duplicate guards at call sites or leave other callers broken.
+root-cause	with	1	true	Fix lands at the root in the shared `formatPrice` function using `Number.isFinite()` to handle null/undefined/NaN across all callers (checkout, cart, email-receipt), not just the reported symptom site.
+root-cause	with	3	true	Fix correctly targets the root in the shared formatPrice function with a nullish coalescing guard, avoiding symptom patches or call-site duplication.

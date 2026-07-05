@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Minimal inline debounce using clearTimeout + setTimeout, no factory abstraction, single implementation, no extras."}```

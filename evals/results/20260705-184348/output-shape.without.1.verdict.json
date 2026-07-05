@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The custom limiter is a single-use factory parameterized for one endpoint, and lacks acknowledgment of its single-process ceiling or upgrade path in code or prose."}```

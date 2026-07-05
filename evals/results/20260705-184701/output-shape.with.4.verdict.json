@@ -1,0 +1,1 @@
+```json{  "pass": false,  "reason": "The parameterized factory `rateLimit(maxRequests, windowMs)` used for one endpoint with fixed limits is a single-use abstraction per the rubric; the limiter should be written inline or use express-rate-limit."}```

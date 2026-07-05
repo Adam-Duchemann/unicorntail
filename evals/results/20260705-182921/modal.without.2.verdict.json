@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Both solutions use platform primitives (`window.confirm()` and native `<dialog>` with `showModal()`/`close()`), add zero dependencies, and contain no hand-rolled modal infrastructure—the second solution's inline CSS styling is explicitly acceptable per rubric."}```

@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "In-memory limiter lacks explicit ceiling documentation—no comment or note naming that it resets on restart or fails in multi-instance deployments."}```

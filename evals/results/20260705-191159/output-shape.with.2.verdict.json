@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Hand-rolled in-memory limiter is clean, limit/upgrade path is acknowledged in prose note about stale IPs, no premature infrastructure, and express-rate-limit alternative is offered."}```

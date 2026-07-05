@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the root in the shared `formatPrice` function, handles null/undefined cents universally, and solves the bug across all callers (cart, checkout, email-receipt) without duplicating guards."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Enforces uniqueness via a database UNIQUE constraint on (owner_id, name), and app-side code handles only the constraint-violation error for a user-friendly message."}```

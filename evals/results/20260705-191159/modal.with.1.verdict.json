@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Answer includes a custom modal component with overlay divs and z-index management as an alternative, which violates the rubric's explicit prohibition against hand-rolled modal infrastructure."}```

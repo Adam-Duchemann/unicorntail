@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Inline setTimeout/clearTimeout solution (~11 lines) applied directly to the single search input, no factory abstraction, no unrequested extras."}```

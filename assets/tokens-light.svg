@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 340" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Rule tokens spent per session as subagents scale: ponytail grows to about 45,000 tokens at 30 subagents; unicorntail stays flat at about 800.">
+<rect width="780" height="340" rx="10" fill="#fcfcfb"/>
+<text x="40" y="36" font-size="19" font-weight="600" fill="#0b0b0b">Rule tokens spent per session — hooks multiply, CLAUDE.md doesn't</text>
+<text x="40" y="57" font-size="13" fill="#898781">ponytail re-injects ~1,450 tok into the session + every subagent · unicorntail rides CLAUDE.md once (~800 tok) · lower is better ↓</text>
+<line x1="90" y1="280.0" x2="740" y2="280.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="80" y="284.0" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">0k</text>
+<line x1="90" y1="213.3" x2="740" y2="213.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="80" y="217.3" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">15k</text>
+<line x1="90" y1="146.5" x2="740" y2="146.5" stroke="#e1e0d9" stroke-width="1"/>
+<text x="80" y="150.5" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">30k</text>
+<line x1="90" y1="79.8" x2="740" y2="79.8" stroke="#e1e0d9" stroke-width="1"/>
+<text x="80" y="83.8" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">45k</text>
+<line x1="90" y1="280" x2="740" y2="280" stroke="#c3c2b7" stroke-width="1.5"/>
+<rect x="118.0" y="273.5" width="34" height="6.5" rx="4" fill="#FFAD65"/>
+<text x="135.0" y="267.5" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">1.4k</text>
+<rect x="158.0" y="276.4" width="34" height="3.6" rx="4" fill="#8C3ED1"/>
+<text x="175.0" y="270.4" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">800</text>
+<text x="155.0" y="300" font-size="12" text-anchor="middle" fill="#898781" font-variant-numeric="tabular-nums">0</text>
+<rect x="248.0" y="241.3" width="34" height="38.7" rx="4" fill="#FFAD65"/>
+<text x="265.0" y="235.3" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">8.7k</text>
+<rect x="288.0" y="276.4" width="34" height="3.6" rx="4" fill="#8C3ED1"/>
+<text x="305.0" y="270.4" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">800</text>
+<text x="285.0" y="300" font-size="12" text-anchor="middle" fill="#898781" font-variant-numeric="tabular-nums">5</text>
+<rect x="378.0" y="209.0" width="34" height="71.0" rx="4" fill="#FFAD65"/>
+<text x="395.0" y="203.0" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">15.9k</text>
+<rect x="418.0" y="276.4" width="34" height="3.6" rx="4" fill="#8C3ED1"/>
+<text x="435.0" y="270.4" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">800</text>
+<text x="415.0" y="300" font-size="12" text-anchor="middle" fill="#898781" font-variant-numeric="tabular-nums">10</text>
+<rect x="508.0" y="144.5" width="34" height="135.5" rx="4" fill="#FFAD65"/>
+<text x="525.0" y="138.5" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">30.4k</text>
+<rect x="548.0" y="276.4" width="34" height="3.6" rx="4" fill="#8C3ED1"/>
+<text x="565.0" y="270.4" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">800</text>
+<text x="545.0" y="300" font-size="12" text-anchor="middle" fill="#898781" font-variant-numeric="tabular-nums">20</text>
+<rect x="638.0" y="80.0" width="34" height="200.0" rx="4" fill="#FFAD65"/>
+<text x="655.0" y="74.0" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">45k</text>
+<rect x="678.0" y="276.4" width="34" height="3.6" rx="4" fill="#8C3ED1"/>
+<text x="695.0" y="270.4" font-size="11" text-anchor="middle" fill="#52514e" font-variant-numeric="tabular-nums">800</text>
+<text x="675.0" y="300" font-size="12" text-anchor="middle" fill="#898781" font-variant-numeric="tabular-nums">30</text>
+<text x="415.0" y="322" font-size="12" text-anchor="middle" fill="#898781">subagents spawned in the session</text>
+<rect x="90" y="66" width="12" height="12" rx="2" fill="#FFAD65"/>
+<text x="108" y="76" font-size="13" fill="#52514e">ponytail (hook re-injection)</text>
+<rect x="320" y="66" width="12" height="12" rx="2" fill="#8C3ED1"/>
+<text x="338" y="76" font-size="13" fill="#52514e">unicorntail (CLAUDE.md, once)</text>
+</svg>

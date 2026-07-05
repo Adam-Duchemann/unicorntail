@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Unique index on (owner_id, lower(name)) enforces at DB level; app-side code limits itself to catching error code 23505 for a friendly message."}```

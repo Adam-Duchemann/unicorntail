@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Delivers a generic debounce factory/wrapper, which the rubric explicitly rejects as an unrequested abstraction for a single call site."}```

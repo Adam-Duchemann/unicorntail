@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Inline setTimeout/clearTimeout directly in the event handler with no factory abstraction, under 15 lines, no unrequested extras."}```

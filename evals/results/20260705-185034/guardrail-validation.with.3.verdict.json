@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Parameterized queries throughout, explicit 404 on missing/redeemed coupon, and atomic UPDATE with redeemed_by IS NULL condition prevents double-crediting."}```

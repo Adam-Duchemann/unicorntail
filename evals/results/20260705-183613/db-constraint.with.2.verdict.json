@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Enforcement is a database UNIQUE constraint on (owner_id, name) with a migration; app code only handles the 23505 error for a friendly message."}```

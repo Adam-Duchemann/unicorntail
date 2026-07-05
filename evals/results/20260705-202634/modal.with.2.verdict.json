@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses native `<dialog>` with `showModal()`, zero dependencies, and no custom modal infrastructure—all buttons and close behaviors handled by the platform primitive."}```

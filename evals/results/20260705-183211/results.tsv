@@ -1,0 +1,24 @@
+db-constraint	with	3	true	Database UNIQUE constraint on (owner_id, name) enforces uniqueness at the database layer, and the app-side code correctly handles the 23505 error code with a friendly message.
+debounce	with	1	false	Delivers a generic reusable debounce factory, which the rubric explicitly prohibits; a minimal one-off inline implementation around the search handler would meet the requirements.
+debounce	with	3	false	Answer presents a reusable debounce factory function and two complete alternative implementations, both explicit FAIL criteria.
+debounce	with	2	false	Two full alternative implementations are presented; the rubric forbids more than one alternative and explicitly warns against presenting generic reusable debounce utilities alongside the minimal solution.
+db-constraint	with	2	true	Database UNIQUE constraint on (owner_id, name) is the core enforcement mechanism, and app-side code correctly handles only the constraint-violation error with a friendly message.
+db-constraint	with	1	true	The answer enforces uniqueness via a database UNIQUE constraint on (owner_id, name) and limits app-side code to error handling for constraint violations—no race-condition-prone SELECT-then-INSERT pattern.
+guardrail-validation	with	1	false	No atomicity—concurrent requests can both fetch and credit the same coupon amount, causing double-crediting on a money-moving endpoint.
+guardrail-tests	with	3	true	Working implementation present; comprehensive Jest test suite covers happy-path combination (1h30m), single units (1h, 30m, 45s), and invalid inputs (empty, invalid format, duplicates) with multiple assertions per category.
+guardrail-tests	with	2	true	Working implementation present with 13 comprehensive Jest tests covering happy-path combinations (1h30m), individual units (hours/minutes/seconds), and multiple invalid inputs that throw.
+guardrail-validation	with	2	false	Two separate queries (SELECT then UPDATE) without atomicity enable race-condition double-crediting of the same coupon; rubric requires transaction, single UPDATE with conditions, or explicit constraint documentation.
+guardrail-validation	with	3	false	No protection against double-redeeming: code does not check if the coupon has already been redeemed, and two queries without a transaction allow the same coupon to be credited to multiple users or the same user multiple times.
+modal	with	3	true	Uses native <dialog> with showModal()/close(), zero dependencies, no custom modal infrastructure.
+modal	with	2	true	Uses native <dialog> with showModal()/close(), zero dependencies, no custom modal infrastructure.
+modal	with	1	true	Uses native <dialog> with showModal()/close(), zero dependencies, and no custom modal infrastructure—meets all rubric requirements.
+guardrail-tests	with	1	true	Implementation is complete and working; tests use Jest framework with comprehensive coverage: happy-path combinations (1h30m, 1h30m45s), single units (1h, 30m, 45s), and multiple invalid-input cases that throw.
+output-shape	with	1	false	Hand-rolled in-memory limiter ships with no comment or note about its ceiling (restart resets, single-process breaks)—the rubric requires an explicit note naming the limitation and upgrade trigger.
+relative-time	with	1	true	Uses Intl.RelativeTimeFormat for all localization, includes no dependencies, and employs only a simple unit-selection helper—exactly what the rubric expects.
+output-shape	with	2	false	The note addresses memory cleanup but doesn't explicitly name the known ceiling: single-process only, resets on restart, doesn't work across multiple instances.
+relative-time	with	3	true	Uses Intl.RelativeTimeFormat for all localization, no new dependencies, no hand-rolled translations, and the unit-selection helper is small and expected per the rubric.
+output-shape	with	3	false	The custom in-memory limiter lacks explicit ceiling warnings in code comments or notes; 'works fine for single-process deployments' is too vague and doesn't name the specific limitations (resets on restart, breaks with multiple instances) that the rubric requires.
+relative-time	with	2	true	Uses Intl.RelativeTimeFormat with locales, no external dependencies, and a simple unit-selection helper—exactly what the rubric expects.
+root-cause	with	1	true	Fix lands at the root in the shared formatPrice function, not symptom-patching checkout.js or duplicating guards at call sites.
+root-cause	with	2	true	Fix correctly lands at the root in the shared `formatPrice` function rather than patching checkout.js exclusively, and avoids duplicating guards at every call site.
+root-cause	with	3	true	The fix correctly identifies and patches the root cause in shared functions (`formatPrice` and `cartTotalCents`) rather than applying symptom patches at individual call sites like checkout.js.

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Database unique index on (owner_id, name) enforces the constraint; app code correctly handles error code 23505 with a user-friendly message, avoiding race conditions."}```

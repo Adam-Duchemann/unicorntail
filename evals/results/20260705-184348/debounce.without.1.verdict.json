@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The answer presents a parameterized debounce(fn, delay) factory (an unrequested abstraction for a single call site) and includes two full alternative implementations, both of which violate the rubric."}```

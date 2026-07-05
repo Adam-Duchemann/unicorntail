@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the root in the shared `formatPrice` function with a single null/undefined guard, eliminating the bug everywhere the function is called without duplicating logic at each call site."}```

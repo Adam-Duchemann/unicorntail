@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Hand-rolled in-memory limiter lacks code comment naming its ceiling (resets on restart, single-process only—move to Redis for multiple instances)."}```

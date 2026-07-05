@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "In-memory Map limiter with ceiling and upgrade path clearly marked in both ponytail comment and prose; factory function is not parameterized so doesn't violate abstraction rules; no premature infrastructure."}```

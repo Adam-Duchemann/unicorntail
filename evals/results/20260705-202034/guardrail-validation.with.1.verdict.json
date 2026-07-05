@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Code validates input, uses parameterized queries, returns proper 4xx on invalid/redeemed coupons, and prevents double-redemption via atomic `WHERE redeemed_at IS NULL` condition with documented atomicity note."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix correctly lands at the root in the shared `formatPrice` function rather than patching checkout.js exclusively, and avoids duplicating guards at every call site."}```

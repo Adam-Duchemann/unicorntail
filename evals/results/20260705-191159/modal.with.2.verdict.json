@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses native <dialog> with showModal()/close(), zero dependencies, proper ::backdrop pseudo-element, no custom overlay/focus-trap code."}```

@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "In-memory limiter lacks explicit code comment or one-line note naming the ceiling (e.g., 'resets on restart, single-process only'); the prose note mentions multi-process upgrade but does not explicitly state the ceiling per the rubric example."}```

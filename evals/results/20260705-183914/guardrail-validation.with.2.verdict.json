@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Parameterized queries prevent injection, atomic UPDATE with condition prevents double-credit, and explicit 404 on missing/already-redeemed coupon; input validation via parameterized queries is sufficient."}```

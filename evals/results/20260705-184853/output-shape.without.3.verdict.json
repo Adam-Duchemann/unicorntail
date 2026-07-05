@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The answer creates a parameterized factory function used only once (for one endpoint with fixed limits), which the rubric explicitly identifies as an unrequested abstraction."}```

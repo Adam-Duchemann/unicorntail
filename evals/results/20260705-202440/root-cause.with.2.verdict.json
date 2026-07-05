@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands in shared `formatPrice` function, handling null at the root so all callers (cart, checkout, email-receipt) inherit the fix without duplication."}```

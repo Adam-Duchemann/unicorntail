@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses native Intl.RelativeTimeFormat with minimal unit-selection helper, no dependencies, no hand-rolled translations."}```

@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The note addresses memory cleanup but doesn't explicitly name the known ceiling: single-process only, resets on restart, doesn't work across multiple instances."}```

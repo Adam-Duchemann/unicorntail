@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Missing atomicity consideration: concurrent requests could both query the coupon, find it exists, and both credit the account without a used_at check or transaction—the code trivially double-credits."}```

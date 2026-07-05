@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "The fix correctly identifies and patches the root cause in shared functions (`formatPrice` and `cartTotalCents`) rather than applying symptom patches at individual call sites like checkout.js."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Parameterized queries throughout, atomic double-redeem prevention via the `used_by IS NULL` condition, explicit 404 error path, and balance credited only after verifying the coupon update succeeded."}```

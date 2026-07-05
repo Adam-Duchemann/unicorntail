@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Database UNIQUE constraint on (owner_id, name) enforces the requirement, and app-side code correctly handles only the constraint-violation error (23505) without app-side checking."}```

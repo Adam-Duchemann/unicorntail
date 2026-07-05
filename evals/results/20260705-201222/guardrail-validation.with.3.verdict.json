@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Validates coupon presence, uses parameterized queries exclusively, returns 400 for missing/already-redeemed coupons, and achieves atomicity via CTE to prevent double-redemption races."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the root in shared formatPrice function, guarding null/undefined and NaN once so all three callers (cart, checkout, email-receipt) get consistent 'N/A' display."}```

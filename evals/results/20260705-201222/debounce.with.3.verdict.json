@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Minimal inline setTimeout/clearTimeout debounce in the event listener, under 15 lines, no factory abstraction or unrequested extras."}```

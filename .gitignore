@@ -1,0 +1,3 @@
+evals/.sandbox/
+evals/results/**/*.err
+.DS_Store

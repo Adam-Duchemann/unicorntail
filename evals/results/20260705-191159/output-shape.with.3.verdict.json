@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "In-memory Map limiter with fixed config applied directly to one route; the prose note adequately acknowledges the upgrade trigger ('scale to multiple processes'), naming both the ceiling and the swap-to-Redis upgrade path."}```

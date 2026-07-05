@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Lacks atomicity safeguard: concurrent requests with the same coupon can both pass the SELECT check before either UPDATE runs, enabling double-crediting; needs transaction, single atomic UPDATE with conditions, or explicit constraint note."}```

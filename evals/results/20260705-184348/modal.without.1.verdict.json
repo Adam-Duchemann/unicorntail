@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Uses custom overlay divs with z-index and manual display-state management instead of the native <dialog> element or window.confirm()."}```

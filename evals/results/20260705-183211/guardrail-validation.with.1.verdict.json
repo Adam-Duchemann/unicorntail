@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "No atomicity—concurrent requests can both fetch and credit the same coupon amount, causing double-crediting on a money-moving endpoint."}```

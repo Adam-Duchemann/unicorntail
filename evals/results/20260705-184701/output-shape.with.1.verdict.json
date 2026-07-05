@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Hand-rolled in-memory Map limiter with explicit ponytail comment naming the single-process ceiling and upgrade triggers (Redis for multi-process, periodic cleanup for unbounded growth), no premature infrastructure or unnecessary abstraction."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Coupon code used in parameterized query with explicit invalid-coupon error path (400); UPDATE with WHERE code=$1 AND redeemed_at IS NULL provides atomicity against double-redemption; transaction wraps both updates."}```

@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Answer uses hand-rolled modal with overlay divs and z-index management instead of native <dialog> or window.confirm()"}```

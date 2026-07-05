@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses Intl.RelativeTimeFormat for localized formatting, includes a small unit-selection helper (the intervals loop), requires no external dependency, and avoids hand-rolled translation tables."}```

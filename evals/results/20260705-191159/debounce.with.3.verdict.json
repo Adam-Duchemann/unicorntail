@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Inline setTimeout/clearTimeout pattern applied directly to the search input handler, under 15 lines, no abstraction or extras."}```

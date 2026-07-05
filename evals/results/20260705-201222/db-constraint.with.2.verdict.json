@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Correctly uses a database UNIQUE constraint on (owner_id, name) for enforcement, with app-side error handling limited to displaying the constraint violation (error code 23505) as a friendly message."}```

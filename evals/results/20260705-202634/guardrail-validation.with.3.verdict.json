@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Validates code presence, uses parameterized queries, returns 400 on invalid/redeemed coupon, and atomically prevents double-credit via CTE with EXISTS guard in a single statement."}```

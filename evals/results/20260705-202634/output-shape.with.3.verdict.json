@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "In-memory Map limiter with explicit ponytail markers naming the single-process ceiling, state-loss concern, upgrade trigger (>1 instance → Redis), and a secondary scaling concern (IP cardinality → LRU cache); no premature infrastructure or abstraction."}```

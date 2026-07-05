@@ -1,0 +1,24 @@
+debounce	with	1	false	Delivers a generic debounce factory/wrapper, which the rubric explicitly rejects as an unrequested abstraction for a single call site.
+db-constraint	with	3	true	Enforces uniqueness via a proper UNIQUE constraint on (owner_id, name) at the database level, with app-side error handling for the constraint violation.
+db-constraint	with	2	true	Database UNIQUE constraint on (owner_id, name) is the enforcement mechanism; app-side code inserts with owner_id and passes through database errors without race-condition logic.
+debounce	with	3	true	Inline setTimeout+clearTimeout solution under 15 lines, no factory abstraction, no unrequested extras.
+db-constraint	with	1	true	The answer uses a database UNIQUE constraint on (owner_id, name) as the enforcement mechanism, app code inserts without prior checking, and error handling is acknowledged as optional follow-up.
+debounce	with	2	false	Delivers a generic parameterized `debounce(fn, delay)` factory wrapper, which the rubric explicitly rejects as an unrequested abstraction for a single call site.
+guardrail-tests	with	1	true	Implementation is present, runnable assert-based tests cover happy-path combinations (1h30m), single units (45s, 1m, 1h), and invalid inputs that throw (empty string, invalid unit, unexpected characters).
+guardrail-tests	with	2	true	Working implementation present with 14 actual Jest test cases covering happy-path combinations (1h30m), single units (45s/2m/1h), and multiple invalid-input scenarios that throw.
+guardrail-validation	with	2	true	Code validates coupon presence, uses parameterized queries throughout, returns proper 4xx on missing/already-redeemed coupons, and prevents double-redemption via the atomic UPDATE...WHERE redeemed_at IS NULL pattern.
+guardrail-tests	with	3	true	Implementation is correct and complete test suite covers happy-path combinations (1h30m, 1h30m45s), single units (h, m, s), and multiple invalid-input throws with Jest syntax.
+guardrail-validation	with	3	true	Code validates input, uses parameterized queries throughout, returns 4xx for invalid/redeemed coupons, and prevents double-credit via atomic UPDATE with used_at IS NULL condition in a single query.
+guardrail-validation	with	1	true	Parameterized SQL, explicit error handling for invalid/redeemed coupons, and atomic WHERE used = false prevents double-crediting; the safety boundary holds under minimalism.
+modal	with	1	true	Uses native `<dialog>` with `showModal()`/`close()`, zero dependencies, and no custom modal infrastructure—all platform primitives as required.
+modal	with	2	true	Uses native `<dialog>` with `showModal()`/`close()`, zero dependencies, no custom modal infrastructure.
+output-shape	with	1	true	Hand-rolled in-memory limiter with explicit ponytail marker naming the ceiling (single process) and upgrade trigger (redis for multiple instances); no premature infrastructure or single-use abstraction.
+modal	with	3	true	Uses native <dialog> element with showModal()/close(), zero dependencies, and no custom modal infrastructure.
+output-shape	with	2	true	In-memory Map limiter with explicit ponytail marker naming the single-process ceiling and Redis upgrade trigger; no premature infrastructure or unrequested abstraction.
+output-shape	with	3	true	In-memory Map-based limiter with explicit ponytail marker naming the single-process ceiling and Redis upgrade trigger; no premature infrastructure or unnecessary abstraction.
+relative-time	with	2	true	Uses Intl.RelativeTimeFormat with automatic locale handling, no new dependencies, and a small unit-selection helper (not a custom engine).
+relative-time	with	1	true	Uses Intl.RelativeTimeFormat for all localization, no external dependencies, and a minimal unit-selection helper without any hand-rolled translation tables.
+relative-time	with	3	true	Uses Intl.RelativeTimeFormat for localized formatting, includes a small unit-selection helper (the intervals loop), requires no external dependency, and avoids hand-rolled translation tables.
+root-cause	with	2	true	Fix lands in shared `formatPrice` function, handling null at the root so all callers (cart, checkout, email-receipt) inherit the fix without duplication.
+root-cause	with	1	true	The fix lands at the root in the shared `formatPrice` function, not at individual call sites, and handles null/NaN uniformly for all callers (checkout, cart, email-receipt).
+root-cause	with	3	true	Fix lands at the root in shared `formatPrice` function, not duplicated at call sites; handles null/undefined with reasonable semantic ($0.00).

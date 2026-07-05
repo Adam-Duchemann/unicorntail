@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "In-memory Map limiter with upgrade path acknowledged in prose note ("For higher scale, swap this for express-rate-limit package"); no premature infrastructure, no single-use abstraction."}```

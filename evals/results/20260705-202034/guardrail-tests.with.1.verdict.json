@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Implementation is working; tests are actual runnable vitest code with meaningful coverage of happy-path ('1h30m'), single units ('45s', '2h'), and multiple invalid-input throws (empty, garbage, wrong order, missing suffix, duplicates, negatives)."}```

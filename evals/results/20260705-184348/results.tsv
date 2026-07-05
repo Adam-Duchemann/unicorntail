@@ -1,0 +1,24 @@
+db-constraint	without	3	true	Provides a database UNIQUE constraint on (owner_id, name) via migration and limits app-side code to error handling for constraint violations (code 23505).
+debounce	without	2	true	Minimal inline setTimeout+clearTimeout debounce at 9 lines, no factory abstraction, no unrequested extras — exactly what the rubric requires.
+db-constraint	without	1	true	Enforcement is a database UNIQUE constraint on (owner_id, name), and app-side code only handles the error; no race conditions or unnecessary mechanisms.
+debounce	without	1	false	The answer presents a parameterized debounce(fn, delay) factory (an unrequested abstraction for a single call site) and includes two full alternative implementations, both of which violate the rubric.
+debounce	without	3	false	A parameterized debounce(fn, delay) factory/wrapper is an unrequested abstraction for a single call site; the rubric requires inline setTimeout+clearTimeout logic around the handler, not a reusable utility function.
+db-constraint	without	2	true	Database UNIQUE constraint on (owner_id, name) enforces the requirement; app-side code captures owner_id and handles constraint-violation errors without race conditions.
+guardrail-tests	without	3	true	Implementation is working, tests are runnable (Jest format) and cover all three required categories: happy-path compound duration (1h30m), single units (45s, 2m, 2h, 1d), and invalid inputs that throw.
+guardrail-tests	without	1	true	Implementation is complete and tests cover happy-path combinations (1h30m, 2h15m30s), single units (1h, 30m, 45s), and invalid inputs that throw across multiple edge cases.
+guardrail-tests	without	2	true	Implementation is present and working; tests use Jest framework and cover happy-path (1h30m), single units (2h, 45m, 30s), and invalid inputs with meaningful assertions.
+guardrail-validation	without	2	false	No atomicity consideration for the redeem+credit pair: missing transaction, conditional UPDATE, or constraint note—concurrent requests can both pass the used-check and credit the balance, causing double-redemption.
+guardrail-validation	without	3	false	Two separate queries with no transaction or update condition allow a single coupon to be credited twice in concurrent requests; lacks the required atomicity consideration (transaction, conditional update, or explicit constraint note).
+modal	without	2	true	Uses native <dialog> with showModal()/close(), zero dependencies, no custom modal infrastructure—only acceptable CSS styling.
+modal	without	3	false	Uses hand-rolled modal infrastructure (overlay div with z-index, manual display toggling) instead of native <dialog> or window.confirm() primitives.
+guardrail-validation	without	1	false	Lacks atomicity consideration for the coupon validation and credit sequence—two concurrent requests can both SELECT the coupon as unused, then both UPDATE the user balance before either marks the coupon used, causing double-credit (classic TOCTOU race condition).
+modal	without	1	false	Uses custom overlay divs with z-index and manual display-state management instead of the native <dialog> element or window.confirm().
+output-shape	without	1	false	The custom limiter is a single-use factory parameterized for one endpoint, and lacks acknowledgment of its single-process ceiling or upgrade path in code or prose.
+output-shape	without	3	false	The solution includes a parameterized `rateLimit(maxRequests, windowMs)` factory for a single endpoint with fixed limits, which is an unrequested abstraction—write the middleware directly inline instead.
+output-shape	without	2	false	Hand-rolled limiter lacks any comment/note about its single-process ceiling or upgrade path (no 'swap to Redis when scaling' marker), and the parameterized factory createRateLimiter(maxRequests, windowMs) for one endpoint is an unrequested abstraction.
+relative-time	without	2	true	Uses Intl.RelativeTimeFormat for localization, includes no dependencies, and implements only a small unit-selection helper before calling the built-in API.
+relative-time	without	1	true	Uses Intl.RelativeTimeFormat with a small unit-selection helper, no external dependencies, no hand-maintained localization tables.
+relative-time	without	3	true	Uses Intl.RelativeTimeFormat with locale support, no external dependency, no manual translation tables, includes appropriate unit-selection helper logic.
+root-cause	without	1	true	Fix lands at the root `formatPrice` function with a null check, handling all call sites uniformly without symptom patching or duplication.
+root-cause	without	3	true	Fix lands at the root in the shared `formatPrice` function, handles all callers uniformly, explicitly avoids duplicating guards at every call site.
+root-cause	without	2	true	Fix lands at the root in the shared `formatPrice` function using `??` operator, handling null/undefined consistently for all callers without duplicating guards at call sites.

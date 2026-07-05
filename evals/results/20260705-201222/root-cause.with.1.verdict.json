@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the root in the shared `formatPrice` function using `Number.isFinite()` to handle null/undefined/NaN across all callers (checkout, cart, email-receipt), not just the reported symptom site."}```

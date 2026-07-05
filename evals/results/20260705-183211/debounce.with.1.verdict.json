@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Delivers a generic reusable debounce factory, which the rubric explicitly prohibits; a minimal one-off inline implementation around the search handler would meet the requirements."}```

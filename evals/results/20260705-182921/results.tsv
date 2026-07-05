@@ -1,0 +1,24 @@
+db-constraint	without	1	true	Database UNIQUE constraint on (owner_id, name) enforces the requirement; app-side code correctly handles only the constraint-violation error for a friendly message.
+db-constraint	without	2	true	Database UNIQUE constraint on (owner_id, name) with app-side error handling only — no race condition, no over-engineering.
+debounce	without	2	false	Presents two full alternative implementations (inline and reusable factory) when only one is permitted; the factory variant is a generic reusable debounce utility, violating the rubric's prohibition.
+db-constraint	without	3	true	Database-level UNIQUE constraint on (owner_id, name) with app-side error handling for constraint violation (23505); no race-condition-prone app-side checks or unnecessary triggers.
+debounce	without	3	false	Answer presents two full alternative implementations (inline and reusable utility), violating the 'no more than one alternative implementation' fail condition.
+debounce	without	1	false	Presents two full implementations; the second is a generic reusable debounce factory, and the rubric explicitly forbids more than one alternative implementation.
+guardrail-tests	without	3	true	Working implementation present; comprehensive runnable tests covering happy-path ('1h30m'), single units (7 cases), and invalid inputs (8 cases with expected throws).
+guardrail-tests	without	2	true	Working implementation present with comprehensive Jest tests covering happy-path combination (1h30m), single units, and multiple invalid-input throws.
+guardrail-validation	without	1	false	Missing atomicity protection—no transaction, UPDATE conditions, or constraint note to prevent double-crediting if the same coupon is redeemed twice concurrently.
+modal	without	2	true	Both solutions use platform primitives (`window.confirm()` and native `<dialog>` with `showModal()`/`close()`), add zero dependencies, and contain no hand-rolled modal infrastructure—the second solution's inline CSS styling is explicitly acceptable per rubric.
+guardrail-validation	without	2	false	Code lacks atomicity protection against double-redeeming the same coupon—no transaction, no conditional UPDATE, and no explicit constraint note documented.
+modal	without	1	true	Uses native <dialog> element with showModal()/close(), zero dependencies, no hand-rolled modal infrastructure—only CSS styling which is acceptable.
+guardrail-validation	without	3	false	No check for already-redeemed coupons; balance is credited before verifying this user hasn't redeemed this coupon before, enabling double-credit via repeated requests.
+modal	without	3	false	Answer uses hand-rolled modal with overlay divs and z-index management instead of native <dialog> or window.confirm()
+relative-time	without	1	true	Uses Intl.RelativeTimeFormat for locale-aware formatting, includes no external dependencies, and delegates unit strings to Intl rather than hand-maintaining translations.
+output-shape	without	3	false	The hand-rolled in-memory limiter lacks an explicit code comment naming its ceiling (restart resets, single-process only); the limitation is mentioned only in prose after the code, not in a comment the shipping developer would see.
+relative-time	without	2	true	Uses Intl.RelativeTimeFormat as the built-in localization engine, adds no external dependency, maintains no hand-rolled translation tables, and includes only a small unit-selection helper—exactly what the rubric requires.
+guardrail-tests	without	1	true	Working implementation with 17 actual runnable tests covering happy-path (1h30m, 90m10s, 1h30m45s), single units (h/m/s), and multiple invalid-input assertions (empty, non-numeric, invalid units, duplicates, missing units).
+output-shape	without	2	true	Primary solution uses express-rate-limit with defaults, which is explicitly acceptable; hand-rolled alternative includes single-process caveat.
+relative-time	without	3	true	Uses Intl.RelativeTimeFormat with a small unit-selection helper, no dependencies, no hand-rolled translations.
+root-cause	without	1	true	Fix lands at the root in the shared `formatPrice` function with a single null/undefined guard, eliminating the bug everywhere the function is called without duplicating logic at each call site.
+root-cause	without	3	true	Fix lands at the root in the shared formatPrice function, handles null/undefined uniformly, and avoids duplicating guards at each call site.
+root-cause	without	2	true	The fix lands at the root in the shared `formatPrice` function, handles both null and undefined before division occurs, and benefits all callers (checkout, cart, email-receipt) without duplication at call sites.
+output-shape	without	1	false	In-memory limiter lacks explicit code comment or one-line note naming the ceiling (e.g., 'resets on restart, single-process only'); the prose note mentions multi-process upgrade but does not explicitly state the ceiling per the rubric example.

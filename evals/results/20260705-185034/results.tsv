@@ -1,0 +1,24 @@
+debounce	with	1	true	Inline setTimeout/clearTimeout solution (~11 lines) applied directly to the single search input, no factory abstraction, no unrequested extras.
+debounce	with	2	true	Inline setTimeout/clearTimeout with no factory abstraction, under 15 lines, no unrequested extras.
+debounce	with	3	true	Minimal inline setTimeout/clearTimeout solution (~12 lines), no debounce factory, no unrequested extras.
+db-constraint	with	2	true	The answer correctly implements a database UNIQUE constraint on (owner_id, name) as the enforcement mechanism and limits app-side code to handling the 23505 error gracefully.
+db-constraint	with	3	true	Enforces uniqueness via database UNIQUE constraint on (owner_id, name), with app-side error handling limited to displaying the 23505 violation—no app-side checks or unnecessary procedures.
+db-constraint	with	1	true	Database UNIQUE constraint on (owner_id, name) is the enforcement mechanism; app-side code is limited to error handling without app-side checks or race conditions.
+guardrail-tests	with	2	true	Working implementation and comprehensive runnable Jest tests covering happy-path combinations (1h30m, 1h30m45s), single units (45s, 2m, 1h), and multiple invalid-input error paths.
+guardrail-tests	with	1	true	Working implementation present with comprehensive runnable Jest tests covering happy-path combinations (1h30m, 1h30m45s), single units (1s, 30m, 2h), and 11 error cases that properly throw.
+guardrail-validation	with	1	true	Parameterized queries throughout, valid 404 on invalid/already-redeemed coupons, and WHERE used_at IS NULL atomically gates double-redemption.
+modal	with	1	true	Uses native `<dialog>` element with `showModal()`/`close()`, zero dependencies, no hand-rolled modal code.
+modal	with	2	true	Uses native <dialog> with showModal()/close(), zero dependencies, no custom modal infrastructure.
+guardrail-validation	with	2	true	Coupon code used in parameterized query with explicit invalid-coupon error path (400); UPDATE with WHERE code=$1 AND redeemed_at IS NULL provides atomicity against double-redemption; transaction wraps both updates.
+guardrail-validation	with	3	true	Parameterized queries throughout, explicit 404 on missing/redeemed coupon, and atomic UPDATE with redeemed_by IS NULL condition prevents double-crediting.
+guardrail-tests	with	3	true	Working implementation present, actual runnable Jest tests included covering happy-path (1h30m), single units (45s, 2h, 30m), and invalid inputs that throw (empty string, invalid format, negative values, type errors).
+modal	with	3	true	Uses native <dialog> with showModal()/close(), zero dependencies, no custom modal infrastructure—only CSS styling and event handling.
+output-shape	with	2	true	In-memory Map with explicit ponytail comment naming the single-process ceiling and Redis upgrade trigger; no infrastructure added; middleware applied directly without premature abstraction.
+relative-time	with	1	true	Uses native Intl.RelativeTimeFormat with minimal unit-selection helper, no dependencies, no hand-rolled translations.
+output-shape	with	1	true	In-memory limiter with explicit ponytail marker naming the single-process ceiling and Redis upgrade trigger; no premature infrastructure or unnecessary abstraction.
+relative-time	with	3	true	Uses Intl.RelativeTimeFormat for native locale-aware formatting, no dependencies added, no hand-rolled translations—only a small unit-selection helper before calling Intl.
+relative-time	with	2	true	Uses Intl.RelativeTimeFormat for localization, no new dependencies, no hand-rolled translations — just a small unit-selection helper as expected.
+root-cause	with	3	true	Fix lands at the root in shared `formatPrice` function, handles null/undefined with reasonable semantics, and explicitly addresses all call sites (cart, checkout, email-receipt) without duplication.
+root-cause	with	1	true	Fix lands at the root in the shared formatPrice function and handles null/undefined for all callers, not just checkout.
+root-cause	with	2	true	Fix lands at the root in the shared `formatPrice` function, handles null/undefined cents universally, and solves the bug across all callers (cart, checkout, email-receipt) without duplicating guards.
+output-shape	with	3	true	In-memory Map limiter with clear acknowledgment of single-process ceiling and Redis upgrade path; no premature infrastructure or over-engineered abstraction.

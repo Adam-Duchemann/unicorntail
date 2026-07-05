@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Implementation is working, tests are runnable (Jest format) and cover all three required categories: happy-path compound duration (1h30m), single units (45s, 2m, 2h, 1d), and invalid inputs that throw."}```

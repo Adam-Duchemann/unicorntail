@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Minimal inline setTimeout+clearTimeout solution, no debounce abstraction, no unrequested extras—exactly what the rubric requires."}```

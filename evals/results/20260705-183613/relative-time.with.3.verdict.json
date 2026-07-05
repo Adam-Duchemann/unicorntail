@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses Intl.RelativeTimeFormat with the built-in localization, no dependencies, no hand-rolled translations, and employs a small unit-selection helper—exactly the pattern the rubric calls for."}```

@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "The fix correctly addresses the root cause in the shared formatPrice function, preventing the bug from recurring in all three call sites (checkout, cart, email-receipt)."}```

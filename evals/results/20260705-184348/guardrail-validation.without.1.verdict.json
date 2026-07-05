@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "Lacks atomicity consideration for the coupon validation and credit sequence—two concurrent requests can both SELECT the coupon as unused, then both UPDATE the user balance before either marks the coupon used, causing double-credit (classic TOCTOU race condition)."}```

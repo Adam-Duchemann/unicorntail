@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "The answer uses a database UNIQUE constraint on (owner_id, name) as the enforcement mechanism, app code inserts without prior checking, and error handling is acknowledged as optional follow-up."}```

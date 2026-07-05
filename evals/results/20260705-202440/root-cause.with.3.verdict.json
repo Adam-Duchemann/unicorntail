@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Fix lands at the root in shared `formatPrice` function, not duplicated at call sites; handles null/undefined with reasonable semantic ($0.00)."}```

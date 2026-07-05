@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Validates code presence, uses parameterized queries throughout, returns 400 on invalid/already-redeemed coupons, and prevents double-credit via atomic CTE that conditions the balance update on a successful redeem row."}```

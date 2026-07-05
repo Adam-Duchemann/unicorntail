@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Database UNIQUE constraint on (owner_id, name) enforces uniqueness at the database layer, and the app-side code correctly handles the 23505 error code with a friendly message."}```

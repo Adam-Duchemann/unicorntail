@@ -1,0 +1,1 @@
+```json{"pass": false, "reason": "The custom in-memory limiter lacks explicit ceiling warnings in code comments or notes; 'works fine for single-process deployments' is too vague and doesn't name the specific limitations (resets on restart, breaks with multiple instances) that the rubric requires."}```

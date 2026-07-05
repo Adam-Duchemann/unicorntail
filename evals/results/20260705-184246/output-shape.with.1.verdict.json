@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "In-memory limiter with Map is the right shortcut for single-process; the prose note 'works fine for single-process deployments' acknowledges the constraint, and no premature infrastructure or factory abstraction is present."}```

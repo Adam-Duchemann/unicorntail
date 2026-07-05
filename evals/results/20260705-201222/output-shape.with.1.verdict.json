@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "In-memory limiter with explicit ceiling and upgrade path marked in ponytail comment and prose; no premature infrastructure or single-use abstraction."}```

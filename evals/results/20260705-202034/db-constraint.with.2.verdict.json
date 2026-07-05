@@ -1,0 +1,1 @@
+```json{"pass": true, "reason": "Uses a database UNIQUE constraint on (owner_id, name) for enforcement and catches Postgres error 23505 to show a friendly message, with no application-side race-condition check."}```
