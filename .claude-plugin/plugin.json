@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
-  "name": "braid",
+  "name": "unicorntail",
   "version": "0.1.0",
   "description": "TODO: describe what this plugin provides",
   "author": {

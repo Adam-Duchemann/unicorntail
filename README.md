@@ -89,7 +89,7 @@ bin/run-evals.sh <with|without|both> [runs] [case ...]   # explicit arm REQUIRED
 bin/run-evals.sh with 3          # with-arm: rules.md injected via --append-system-prompt
 bin/run-evals.sh without 3       # baseline arm (see caveat below)
 bin/run-evals.sh both 3 modal    # single case
-BRAID_MODEL=sonnet bin/run-evals.sh with 3   # subject-model override (BRAID_JUDGE_MODEL for judge)
+UNICORNTAIL_MODEL=sonnet bin/run-evals.sh with 3   # subject-model override (UNICORNTAIL_JUDGE_MODEL for judge)
 ```
 
 Every case × run × arm makes ~2 **paid** model calls, so the script refuses to run without an
@@ -111,7 +111,7 @@ explicit arm — a bare invocation (or `--help`) prints usage and spends nothing
 
 Haiku 4.5 subject, 3 runs/case, haiku judge, final rubrics on all arms. The ponytail arm
 injects ponytail v4.8.4's actual skill body (5,771 bytes, frontmatter stripped) via
-`BRAID_RULES=<file>`, run with the shipped CLAUDE.md section temporarily removed
+`UNICORNTAIL_RULES=<file>`, run with the shipped CLAUDE.md section temporarily removed
 (restored byte-identical after):
 
 | Case | no tool (Haiku) | ponytail (Haiku) | unicorntail (Haiku) | unicorntail (Sonnet) |
@@ -158,7 +158,7 @@ There is nothing to install — that's the point. Copy [`rules.md`](rules.md) in
 global `CLAUDE.md` (or your agent's equivalent standing instructions). Optionally sharpen
 two spots: the rung 4 platform examples to your stack's equivalents, and the "process is
 never on the ladder" paragraph to name *your* test/verification policies. The eval suite
-(`evals/` + `bin/run-evals.sh`) works against any rule set via `BRAID_RULES=<file>` —
+(`evals/` + `bin/run-evals.sh`) works against any rule set via `UNICORNTAIL_RULES=<file>` —
 benchmark your own adaptation before trusting it (ponytail's own rule body is included as
 an arm under `evals/arms/`). The full launch report with methodology lives at
 [`docs/report.html`](docs/report.html).

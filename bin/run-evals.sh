@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
-# Braid eval runner — with/without ablation over evals/*/prompt.md + graders/rubric.md.
+# Unicorntail eval runner — with/without ablation over evals/*/prompt.md + graders/rubric.md.
 # Stand-in for `claude plugin eval` (server-gated early access as of CC 2.1.201).
 set -uo pipefail
 
-BRAID="$HOME/.claude/skills/braid"
-EVALS="$BRAID/evals"
-RULES="${BRAID_RULES:-$BRAID/rules.md}"   # BRAID_RULES=<file> to eval an alternative rule set (e.g. ponytail's)
+UNICORNTAIL="$HOME/.claude/skills/unicorntail"
+EVALS="$UNICORNTAIL/evals"
+RULES="${UNICORNTAIL_RULES:-$UNICORNTAIL/rules.md}"   # UNICORNTAIL_RULES=<file> to eval an alternative rule set (e.g. ponytail's)
 
 usage() {
   cat <<EOF
 Usage: run-evals.sh <with|without|both> [runs-per-case] [case-name ...]
 
-  with      inject the rule set (\$BRAID_RULES, default rules.md) into the subject
+  with      inject the rule set (\$UNICORNTAIL_RULES, default rules.md) into the subject
   without   bare baseline, no rules
   both      both arms
 
@@ -22,7 +22,7 @@ COST: every case x run x arm makes ~2 PAID model calls (subject + judge).
 Full suite 'both 3' = 8 cases x 3 runs x 2 arms = 48 runs (~96 calls).
 An explicit arm is required — this script never runs by default.
 
-Env: BRAID_RULES=<file>  BRAID_MODEL=haiku  BRAID_JUDGE_MODEL=haiku  BRAID_PARALLEL=6
+Env: UNICORNTAIL_RULES=<file>  UNICORNTAIL_MODEL=haiku  UNICORNTAIL_JUDGE_MODEL=haiku  UNICORNTAIL_PARALLEL=6
 Results: evals/results/<timestamp>/results.tsv + per-run answer/verdict files.
 EOF
 }
@@ -47,9 +47,9 @@ shift 2 2>/dev/null || shift $# 2>/dev/null || true
 STAMP=$(date +%Y%m%d-%H%M%S)
 OUT="$EVALS/results/$STAMP"
 SANDBOX="$EVALS/.sandbox"
-PARALLEL="${BRAID_PARALLEL:-6}"
-MODEL="${BRAID_MODEL:-haiku}"
-JUDGE_MODEL="${BRAID_JUDGE_MODEL:-haiku}"
+PARALLEL="${UNICORNTAIL_PARALLEL:-6}"
+MODEL="${UNICORNTAIL_MODEL:-haiku}"
+JUDGE_MODEL="${UNICORNTAIL_JUDGE_MODEL:-haiku}"
 
 if [[ "$ARM" != "without" && ! -s "$RULES" ]]; then
   echo "rules file missing/empty but arm=$ARM — with-arm would equal baseline: $RULES" >&2
