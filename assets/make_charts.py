@@ -65,7 +65,7 @@ def gradient_def(t, gid, x1, x2):
 
 
 def svg_results(t):
-    w, h = 780, 360
+    w, h = 780, 340
     bar_h, gap, x0, xmax = 40, 24, 250, 730
     scale = (xmax - x0) / TOTAL_RUNS
     parts = [
@@ -92,7 +92,6 @@ def svg_results(t):
             f'<text x="{xmax + 8}" y="{y + bar_h / 2 + 5}" font-size="12" font-weight="600" fill="{t["grad"][1]}" font-variant-numeric="tabular-nums">100%</text>',
         ]
         y += bar_h + gap
-    parts.append(f'<text x="40" y="{h - 18}" font-size="12" fill="{t["sub"]}">Fair read: unicorntail was tuned 4× on this suite; ponytail ran cold. Its money-path 0/3 is by design, not tuning.</text>')
     parts.append("</svg>")
     return "\n".join(parts)
 

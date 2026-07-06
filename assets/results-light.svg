@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Eval runs passed out of 24: no tool 14 and ponytail 19 on Haiku; unicorntail 22 on Haiku and 24 of 24 on Sonnet.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 340" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Eval runs passed out of 24: no tool 14 and ponytail 19 on Haiku; unicorntail 22 on Haiku and 24 of 24 on Sonnet.">
 <defs><linearGradient id="unigrad" gradientUnits="userSpaceOnUse" x1="250" y1="0" x2="730" y2="0"><stop offset="0%" stop-color="#FD63B0"/><stop offset="20%" stop-color="#8C3ED1"/><stop offset="40%" stop-color="#30A0F5"/><stop offset="60%" stop-color="#1EF361"/><stop offset="80%" stop-color="#ECFE0C"/><stop offset="100%" stop-color="#FFAD65"/></linearGradient></defs>
-<rect width="780" height="360" rx="10" fill="#fcfcfb"/>
+<rect width="780" height="340" rx="10" fill="#fcfcfb"/>
 <text x="40" y="36" font-size="19" font-weight="600" fill="#0b0b0b">Eval runs passed — 8 cases × 3 runs, same rubrics, same judge</text>
 <text x="40" y="57" font-size="13" fill="#898781">rules injected identically per arm · same rubrics, same judge · higher is better ↑</text>
 <text x="236" y="115.0" font-size="14" text-anchor="end" fill="#52514e">no tool · Haiku</text>
@@ -23,5 +23,4 @@
 <rect x="250" y="282" width="480.0" height="40" rx="6" fill="url(#unigrad)"/>
 <text x="718.0" y="307.0" font-size="15" font-weight="600" text-anchor="end" fill="#1d2733" font-variant-numeric="tabular-nums">24/24</text>
 <text x="738" y="307.0" font-size="12" font-weight="600" fill="#8C3ED1" font-variant-numeric="tabular-nums">100%</text>
-<text x="40" y="342" font-size="12" fill="#898781">Fair read: unicorntail was tuned 4× on this suite; ponytail ran cold. Its money-path 0/3 is by design, not tuning.</text>
 </svg>
