@@ -1,8 +1,6 @@
-# Unicorntail — ponytail, woven tighter
+# Unicorntail — make your coding agent write better code while saving tokens
 
-*(what a ponytail becomes on a mythical creature)*
-
-*The lazy-senior-dev ladder at ¼ the tokens. Zero hooks, zero conflicts, nothing to install.*
+*ponytail's lazy-senior-dev ladder, distilled into your `CLAUDE.md`: ¼ the tokens, nothing to install.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Sonnet: 24/24](https://img.shields.io/badge/Sonnet-24%2F24-brightgreen)](#measured-results-2026-07-05-tdd-build)
@@ -40,7 +38,7 @@ than patching the symptom, and any deliberate shortcut must carry a comment nami
 and when to upgrade it — so shortcuts stay visible and greppable instead of silently rotting.
 
 **Why not just install [ponytail](https://github.com/DietrichGebert/ponytail)**, the popular
-plugin this is based on? Ponytail does the same job but as installed machinery: hooks that
+plugin this is inspired by? Ponytail does the same job but as installed machinery: hooks that
 re-inject ~6KB of rules into every session *and every helper agent you spawn*, plus rules that
 can argue with rules you already have (it discourages tests; your workflow may require them).
 Unicorntail is that idea flattened into plain text you already carry: about half the size,
