@@ -308,6 +308,7 @@
       <span><strong>UNICORNTAIL</strong></span>
       <span>eval-gated code-shape rules</span>
       <span>TDD build · 2026-07-05</span>
+      <span>net-token audit · 2026-07-08</span>
       <span>ships in ~/.claude/CLAUDE.md</span>
     </div>
     <h1>Ponytail, woven tighter.</h1>
@@ -335,6 +336,10 @@
       <div class="stat">
         <div class="num plain">~45k</div>
         <div class="lbl">tokens saved per 31-agent workflow</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="from">834</span><span class="sep">→</span><span class="to">2,799</span></div>
+        <div class="lbl">input cost → output tokens saved per coding task (measured)</div>
       </div>
       <div class="stat">
         <div class="num plain">0</div>
@@ -539,6 +544,50 @@
     </div>
 
     <p class="results-note"><b>Tier check.</b> Sonnet subject on the hardest case (output-shape): unicorntail 3/3, no tool 2/3. Haiku shows residual variance beyond just debounce — the single-use-factory habit surfaced 3/5 in one v4 roll — acceptable because in the house model-routing policy Haiku never writes shipped code; Sonnet is the implementation floor, and it's clean there at 24/24.</p>
+  </section>
+
+  <section>
+    <p class="kicker">The net-token ledger</p>
+    <h2>It doesn't cost tokens. It saves them.</h2>
+    <p class="lede">The −45% injection saving above is the small half of the story — it only compares unicorntail's rule body to ponytail's. The bigger half is what the rules do to the <em>output</em>: an agent that refuses to over-build writes far less code, and output tokens are the expensive ones. Measured across 8 realistic tasks, the same Sonnet model produced <b>~11× less code</b> with the ladder than without it.</p>
+    <p class="results-note">Each task generated twice on Sonnet: once ladder-directed, once with a neutral "thorough senior engineer — ignore any minimalist meta-guidance" prompt. Output tokens estimated from each arm's returned code (chars ÷ 3.8). Same tasks, same model, graded by raw volume.</p>
+
+    <div class="table-scroll">
+      <table class="results">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th style="text-align:right">with ladder</th>
+            <th style="text-align:right">no ladder</th>
+            <th style="text-align:right">output tok saved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="case">store-theme</td><td class="score" style="text-align:right">263</td><td class="score" style="text-align:right;color:var(--red)">3,099</td><td class="score" style="text-align:right;color:var(--green)">2,836</td></tr>
+          <tr><td class="case">debounce-search †</td><td class="score" style="text-align:right">37</td><td class="score" style="text-align:right;color:var(--red)">830</td><td class="score" style="text-align:right;color:var(--green)">793</td></tr>
+          <tr><td class="case">validate-upload</td><td class="score" style="text-align:right">1,366</td><td class="score" style="text-align:right;color:var(--red)">4,031</td><td class="score" style="text-align:right;color:var(--green)">2,665</td></tr>
+          <tr><td class="case">retry-api</td><td class="score" style="text-align:right">191</td><td class="score" style="text-align:right;color:var(--red)">3,330</td><td class="score" style="text-align:right;color:var(--green)">3,139</td></tr>
+          <tr><td class="case">relative-time ‡</td><td class="score" style="text-align:right">69</td><td class="score" style="text-align:right;color:var(--red)">5,004</td><td class="score" style="text-align:right;color:var(--green)">4,935</td></tr>
+          <tr><td class="case">feature-flag</td><td class="score" style="text-align:right">133</td><td class="score" style="text-align:right;color:var(--red)">3,474</td><td class="score" style="text-align:right;color:var(--green)">3,341</td></tr>
+          <tr><td class="case">cache-user</td><td class="score" style="text-align:right">215</td><td class="score" style="text-align:right;color:var(--red)">2,983</td><td class="score" style="text-align:right;color:var(--green)">2,768</td></tr>
+          <tr><td class="case">parse-tags</td><td class="score" style="text-align:right">22</td><td class="score" style="text-align:right;color:var(--red)">1,938</td><td class="score" style="text-align:right;color:var(--green)">1,916</td></tr>
+          <tr class="total"><td class="case">Total (output tok)</td><td class="score" style="text-align:right">2,296</td><td class="score" style="text-align:right;color:var(--red)">24,689</td><td class="score" style="text-align:right;color:var(--green);font-weight:600">22,393</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span>146 LOC written vs 1,789 · median task shrinks from a small module to a handful of lines</span>
+      <span>† neutral arm built a generic <code>debounce(fn,delay)</code> factory — the exact pattern the ladder bans</span>
+      <span>‡ neutral arm also "fixed" a pre-existing bug across 14 locale files — an unrequested 14-file change</span>
+    </div>
+
+    <div class="callout">
+      <p><b>The ladder is token-negative.</b> It costs ~834 input tokens per agent to inject, and saves a mean of <b>2,799 output tokens per coding task</b> — a 3.4× return on generation alone, before the far larger downstream cost of reviewing, testing, and maintaining 1,789 lines instead of 146. Output bills ~5× input on Sonnet, so in dollars the injection is repaid roughly seventeen times over per task. "Higher-quality reasoning costs fewer tokens in the end" isn't a slogan here — it's the measured result.</p>
+    </div>
+
+    <div class="callout caveat">
+      <p><b>Read the 11× as an upper bound.</b> The ladder arm often reuses a helper it couldn't verify exists (the agents had no repo access), so real reuse in a live codebase is only partial and the true gap is smaller. But even the ladder's from-scratch tasks (validate-upload at 1,366 tok) beat the neutral arm 3×, and the direction is unambiguous. Single model (Sonnet); generation output only — the downstream savings aren't even counted.</p>
+    </div>
   </section>
 
   <section>

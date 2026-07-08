@@ -6,6 +6,7 @@
 [![Sonnet: 24/24](https://img.shields.io/badge/Sonnet-24%2F24-brightgreen)](#measured-results-2026-07-05-tdd-build)
 [![Haiku: 22/24 vs ponytail 19/24](https://img.shields.io/badge/Haiku-22%2F24_vs_ponytail_19%2F24-green)](#measured-results-2026-07-05-tdd-build)
 [![rule tokens: −45% per injection, ×1 not ×N](https://img.shields.io/badge/rule_tokens-%E2%88%9245%25%20per%20injection%2C%20%C3%971%20not%20%C3%97N-blue)](#the-pitch)
+[![net tokens: 3.4× output saved, −91% code](https://img.shields.io/badge/net_tokens-3.4%C3%97%20output%20saved%2C%20%E2%88%9291%25%20code-8C3ED1)](#the-net-token-ledger-2026-07-08)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
@@ -149,6 +150,53 @@ abstract conventions.
 
 Deployment is one paste: `rules.md` becomes a section of your global `CLAUDE.md`. The bundled
 skill stays **disabled** and exists as the eval fixture.
+
+## The net-token ledger (2026-07-08)
+
+The `−45%` above is the *small* half of the savings story — it only compares unicorntail's rule
+body to ponytail's. The bigger half is what the ladder does to the **output**: an agent that
+refuses to over-build writes far less code, and output tokens are the expensive ones (they bill
+~5× input on Sonnet). So carrying the ladder isn't merely cheaper than carrying ponytail — it's
+**token-negative**, paying for itself several times over on the very first coding task.
+
+Measured across 8 realistic tasks (theme persistence, debounced search, upload validation, API
+retry, relative time, a feature flag, a profile cache, tag parsing), each generated twice on
+Sonnet: once ladder-directed, once with a neutral "thorough senior engineer — ignore any
+minimalist meta-guidance" prompt. Output tokens estimated from each arm's returned code
+(chars ÷ 3.8):
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/net-tokens-dark.svg">
+  <img alt="Output tokens per task, ladder vs neutral: the ladder writes ~11× less code — 2,296 tokens across 8 tasks versus 24,689 without it." src="assets/net-tokens-light.svg" width="100%">
+</picture>
+
+| Task | with ladder | no ladder | output tok saved |
+|---|--:|--:|--:|
+| store-theme | 263 | 3,099 | 2,836 |
+| debounce-search † | 37 | 830 | 793 |
+| validate-upload | 1,366 | 4,031 | 2,665 |
+| retry-api | 191 | 3,330 | 3,139 |
+| relative-time ‡ | 69 | 5,004 | 4,935 |
+| feature-flag | 133 | 3,474 | 3,341 |
+| cache-user | 215 | 2,983 | 2,768 |
+| parse-tags | 22 | 1,938 | 1,916 |
+| **total** | **2,296** | **24,689** | **22,393** |
+
+*† the neutral arm built a generic `debounce(fn, delay)` factory — the exact single-use factory
+the ladder bans. ‡ the neutral arm also "fixed" a pre-existing bug across 14 locale files — an
+unrequested 14-file change, the scope-creep the ladder's minimal-impact rule prevents.*
+
+**The math.** ~834 input tokens/agent to inject (the ~800-token standing cost above, measured
+exactly), against a mean of **2,799 output tokens saved per task** — a 3.4× return on generation
+alone, before the far larger downstream cost of reviewing, testing, and maintaining 1,789 lines
+instead of 146. Output bills ~5× input on Sonnet, so in dollars the injection is repaid roughly
+**17× per task**.
+
+**Read the ~11× as an upper bound.** The ladder arm often reuses a helper it couldn't verify
+exists (the eval agents had no repo access), so real reuse in a live codebase is only partial and
+the true gap is narrower. But even the ladder's from-scratch tasks (validate-upload at 1,366
+tokens) beat the neutral arm 3×, and the direction is unambiguous. Single model (Sonnet);
+generation output only — the downstream savings aren't even counted.
 
 ## Use it yourself
 

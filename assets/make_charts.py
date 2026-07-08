@@ -54,6 +54,21 @@ PONY_TOK = 1450
 UNI_TOK = 800
 AGENT_COUNTS = [0, 5, 10, 20, 30]
 
+# Net-token measurement 2026-07-08 — output tokens generated per task, ladder-directed vs
+# neutral, same Sonnet subject. See README "The net-token ledger". (name, with_tok, without_tok)
+NET_TASKS = [
+    ("store-theme", 263, 3099),
+    ("debounce-search", 37, 830),
+    ("validate-upload", 1366, 4031),
+    ("retry-api", 191, 3330),
+    ("relative-time", 69, 5004),
+    ("feature-flag", 133, 3474),
+    ("cache-user", 215, 2983),
+    ("parse-tags", 22, 1938),
+]
+NET_WITH_TOTAL = sum(wt for _, wt, _ in NET_TASKS)      # 2,296
+NET_WITHOUT_TOTAL = sum(ot for _, _, ot in NET_TASKS)   # 24,689
+
 
 def gradient_def(t, gid, x1, x2):
     stops = "".join(
@@ -140,6 +155,52 @@ def svg_tokens(t):
     return "\n".join(parts)
 
 
+def svg_nettokens(t):
+    """Per-task output tokens: gradient = written with the ladder, gray = over-build avoided."""
+    w = 780
+    x0, xmax = 172, 690
+    bar_h, gap, top = 20, 13, 92
+    max_val = 5100
+    scale = (xmax - x0) / max_val
+    h = top + len(NET_TASKS) * (bar_h + gap) + 82
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" font-family="{FONT}" role="img" '
+        f'aria-label="Output tokens generated per task, ladder vs neutral: the ladder writes about 11 times '
+        f'less code, 2,296 tokens across 8 tasks versus 24,689 without it.">',
+        f"<defs>{gradient_def(t, 'netgrad', x0, xmax)}</defs>",
+        f'<rect width="{w}" height="{h}" rx="10" fill="{t["bg"]}"/>',
+        f'<text x="40" y="36" font-size="19" font-weight="600" fill="{t["title"]}">Code written vs code skipped — 8 tasks, same model</text>',
+        f'<text x="40" y="57" font-size="13" fill="{t["sub"]}">gradient = tokens generated with the ladder · gray = extra tokens the neutral run spent · lower total is better ↓</text>',
+    ]
+    y = top
+    for name, wtok, otok in NET_TASKS:
+        full = otok * scale
+        seg = max(2.5, wtok * scale)
+        parts += [
+            f'<text x="{x0 - 12}" y="{y + bar_h / 2 + 5}" font-size="13" text-anchor="end" fill="{t["label"]}">{name}</text>',
+            f'<rect x="{x0}" y="{y}" width="{full:.1f}" height="{bar_h}" rx="4" fill="{t["neutral"]}"/>',
+            f'<rect x="{x0}" y="{y}" width="{seg:.1f}" height="{bar_h}" rx="4" fill="url(#netgrad)"/>',
+            f'<text x="{x0 + full + 8:.1f}" y="{y + bar_h / 2 + 5}" font-size="12" fill="{t["sub"]}" font-variant-numeric="tabular-nums">{otok:,}</text>',
+        ]
+        y += bar_h + gap
+    ly = y + 8
+    parts += [
+        f'<rect x="{x0}" y="{ly}" width="12" height="12" rx="2" fill="url(#netgrad)"/>',
+        f'<text x="{x0 + 18}" y="{ly + 10}" font-size="13" fill="{t["label"]}">written with the ladder</text>',
+        f'<rect x="{x0 + 188}" y="{ly}" width="12" height="12" rx="2" fill="{t["neutral"]}"/>',
+        f'<text x="{x0 + 206}" y="{ly + 10}" font-size="13" fill="{t["label"]}">over-build the ladder refused</text>',
+    ]
+    sy = ly + 40
+    saved = NET_WITHOUT_TOTAL - NET_WITH_TOTAL
+    parts += [
+        f'<text x="40" y="{sy}" font-size="15" font-weight="600" fill="{t["title"]}" font-variant-numeric="tabular-nums">'
+        f'Total: <tspan fill="{t["uni_solid"]}">{NET_WITH_TOTAL:,}</tspan> written vs {NET_WITHOUT_TOTAL:,} — '
+        f'<tspan fill="{t["mane"][3]}">{saved:,} output tokens saved (−91%)</tspan></text>',
+        "</svg>",
+    ]
+    return "\n".join(parts)
+
+
 def svg_banner(t):
     """Six-strand unicorn mane weaving, then merging into one rainbow line."""
     w, h, mid = 880, 120, 60
@@ -172,7 +233,7 @@ def svg_banner(t):
             f"{merged}\n" + "\n".join(paths) + "\n</svg>")
 
 
-CHARTS = {"results": svg_results, "tokens": svg_tokens, "banner": svg_banner}
+CHARTS = {"results": svg_results, "tokens": svg_tokens, "net-tokens": svg_nettokens, "banner": svg_banner}
 
 for name, fn in CHARTS.items():
     for theme, tokens in THEMES.items():
